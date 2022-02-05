@@ -12,6 +12,40 @@
     <title>Poetry Heaven</title>
 </head>
 <body>
+    <header>
+        <!-- top navbar -->
+        <nav class="nav-extended indigo darken-4">
+            <div class="nav-wrapper">
+                <a href="{{ url_for('get_poems') }}" class="logo"><img src="static/images/poetryheaven_logo.png"
+                        alt="Poetry Heaven Logo"></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons"><i
+                            class="fas fa-bars"></i></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('get_poems') }}">Home</a></li>
+                    <li><a href="#">Poems</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="#">Log Out</a></li>
+                    <li><a href="#">Add Poem</a></li>
+                    <li><a href="#">Additional Advert</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!--  mobile sidenav -->
+        <ul class="sidenav" id="mobile-demo">
+            <a href="{{ url_for('get_poems') }}" class="logo"><img src="static/images/poetryheaven_logo_small.png"
+                alt="Poetry Heaven Logo"></a>
+            <li><a href="{{ url_for('get_poems') }}">Home</a></li>
+            <li><a href="#">Poems</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="#">Log In</a></li>
+            <li><a href="#">Log Out</a></li>
+            <li><a href="#">Add Poem</a></li>
+            <li><a href="#">Additional Advert</a></li>
+        </ul>
+    </header>
 
     {% block content %}
     {% endblock %}
