@@ -48,3 +48,7 @@ footer {
     color: #6741a0;
 }
 /* ----------------  /Style Footer ------------------ */
+
+.flashes h4 {
+    line-height: 2;
+}

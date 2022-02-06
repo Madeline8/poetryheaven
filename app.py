@@ -1,9 +1,13 @@
+"""
+"""
+
 import os
 from flask import (
     Flask, flash, render_template,
 redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 # Import the env package in order to use my environment
@@ -31,6 +35,32 @@ mongo = PyMongo(app)
 def get_poems():
     poems = mongo.db.poems.find()
     return render_template("poems.html", poems=poems)
+
+# Sign Up Page
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    if request.method == "POST":
+        #check if username exists
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+        
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("signup"))
+
+        signup = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(signup)
+
+        #  put new user into session
+        session["user"] = request.form.get("username").lower()
+        flash("You have successfully Signed Up!")
+        return redirect(url_for("signup", username=session["user"]))
+
+
+    return render_template("signup.html")
 
 
 if __name__ == "__main__":
