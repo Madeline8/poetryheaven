@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content%}
+
+    {% for poem in poems %}
+        {{ poem.title }}<br>
+        {{ poem.created_by }}<br>
+        {{ poem.created_on }}<br>
+        {{ poem.category }}<br>
+        {{ poem.location }}<br>
+        {{ poem.content }}<br>
+        {{ poem.gender }}<br>
+    {% endfor%}
+{% endblock %}
