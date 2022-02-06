@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">Sign Up</h3>
+<h3 class="center-align">Log In</h3>
 <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('signup') }}">
+    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
         <div class="card-panel">
             <!--  username -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-user-plus prefix grey-text text-darken-2"></i>
+                    <i class="fas fa-user-cog prefix grey-text text-darken-2"></i>
                     <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[A-Za-z0-9]{5,15}$" class="validate" required>
                     <label for="username">username</label>
                 </div>
@@ -21,10 +21,10 @@
                     <label for="password">Password</label>
                 </div>
             </div>
-            <!-- sign up -->
+            <!-- log in -->
             <div class="row">
                 <button type="submit" class="col s12 btn-large grey darken-2">
-                    Sign Up <i class="fas fa-sign-in-alt"></i>
+                    Log In <i class="fas fa-sign-in-alt"></i>
                 </button>
             </div>
         </div>
@@ -34,8 +34,8 @@
 <div class="row">
     <div class="col s12">
         <p class="center-align">
-            Already Signed Up?
-            <a href="{{ url_for('login') }}" class="grey-text text-darken-2">Log In</a>
+            New Here?
+            <a href="{{ url_for('signup') }}" class="grey-text text-darken-2">Sign Up</a>
         </p>
     </div>
 </div>
