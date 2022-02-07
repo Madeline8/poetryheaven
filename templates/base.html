@@ -29,7 +29,7 @@
                     <br>
                     <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('get_poems') }}">Home</a></li>
                     <li><a class="nav-link grey-text text-darken-2" href="#">Poems</a></li>
-                    <li><a class="nav-link grey-text text-darken-2" href="#">Profile</a></li>
+                    <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                     <li><a class="nav-link grey-text text-darken-2" href="#">Categories</a></li>
                     <li><a class="nav-link grey-text text-darken-2" href="#">Add New Poem</a></li>
                     <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('login') }}">Log In</a></li>
@@ -45,7 +45,7 @@
                     alt="Poetry Heaven Logo"></a>
             <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('get_poems') }}">Home</a></li>
             <li><a class="nav-link grey-text text-darken-2" href="#">Poems</a></li>
-            <li><a class="nav-link grey-text text-darken-2" href="#">Profile</a></li>
+            <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
             <li><a class="nav-link grey-text text-darken-2" href="#">Categories</a></li>
             <li><a class="nav-link grey-text text-darken-2" href="#">Add New Poem</a></li>
             <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('login') }}">Log In</a></li>
@@ -74,7 +74,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="deep-purple lighten-5 footer-style">
+    <footer class="page-footer deep-purple lighten-5 footer-style">
         <div class="row">
             <div class="col m4">
                 <h4 class="grey-text text-darken-2">Poetry Heaven <br> </h4>

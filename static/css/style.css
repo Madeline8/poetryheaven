@@ -8,9 +8,6 @@
     border: 0;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-}
 /* ------------------- /Set Defaults ------------------------- */
 /* ----------------  Style Navigation Menu ------------------ */
 
@@ -20,6 +17,20 @@ body {
 
 /* ----------------  /Style Navigation Menu ------------------ */
 /* ----------------  Style Footer ------------------ */
+
+
+/* set up sticky footer form: https://materializecss.com/footer.html */
+body {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+  /* End of set up sticky footer form: https://materializecss.com/footer.html */
 
 footer {
     left: 0;
