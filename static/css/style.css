@@ -63,3 +63,10 @@ footer {
 .flashes h4 {
     line-height: 2;
 }
+
+/* ----------------  Poems ------------------ */ 
+.poem-position {
+  margin-bottom: 18px;
+  text-align: justify;
+}
+/* ----------------  /Poems ------------------ */ 
