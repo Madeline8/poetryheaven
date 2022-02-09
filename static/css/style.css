@@ -69,4 +69,7 @@ footer {
   margin-bottom: 18px;
   text-align: justify;
 }
-/* ----------------  /Poems ------------------ */ 
+
+.collapsible-header {
+  border: 1.2px solid #fff;
+/* ----------------  /Poems ------------------ */

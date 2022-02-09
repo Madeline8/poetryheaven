@@ -2,7 +2,7 @@
 {% block content %}
 
 HELLO HELLO TEST
-    <!-- {% for poem in poems %}
+<!-- {% for poem in poems %}
         {{ poem.title }}<br>
         {{ poem.created_by }}<br>
         {{ poem.created_on }}<br>
@@ -11,4 +11,19 @@ HELLO HELLO TEST
         {{ poem.content }}<br>
         {{ poem.gender }}<br>
     {% endfor%} -->
+
+<ul class="collapsible">
+    <li>
+        <div class="collapsible-header amber lighten-3 lighten-5 grey-text text-darken-2"><i class="fa-solid fa-angle-down">filter_drama</i>First</div>
+        <div class="collapsible-body amber lighten-4 lighten-5 grey-text text-darken-2"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+        <div class="collapsible-header amber lighten-3 lighten-5 grey-text text-darken-2"><i class="fa-solid fa-angle-down">place</i>Second</div>
+        <div class="collapsible-body amber lighten-4 lighten-5 grey-text text-darken-2"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+        <div class="collapsible-header amber lighten-3 lighten-5 grey-text text-darken-2"><i class="fa-solid fa-angle-down">whatshot</i>Third</div>
+        <div class="collapsible-body amber lighten-4 lighten-5 grey-text text-darken-2"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+</ul>
 {% endblock %}
