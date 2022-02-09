@@ -1,29 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-HELLO HELLO TEST
-<!-- {% for poem in poems %}
-        {{ poem.title }}<br>
-        {{ poem.created_by }}<br>
-        {{ poem.created_on }}<br>
-        {{ poem.category }}<br>
-        {{ poem.location }}<br>
-        {{ poem.content }}<br>
-        {{ poem.gender }}<br>
-    {% endfor%} -->
-
 <ul class="collapsible">
+    {%for poem in poems %}
     <li>
-        <div class="collapsible-header amber lighten-3 lighten-5 grey-text text-darken-2"><i class="fa-solid fa-angle-down">filter_drama</i>First</div>
-        <div class="collapsible-body amber lighten-4 lighten-5 grey-text text-darken-2"><span>Lorem ipsum dolor sit amet.</span></div>
+        <div class="collapsible-header amber lighten-3 lighten-5 grey-text text-darken-2">
+            <i class="fa-solid fa-angle-down"></i>
+            <strong>{{ poem.title }}</strong>
+        </div>
+
+        <div class="collapsible-body amber lighten-4 lighten-5 grey-text text-darken-2">
+            <p>{{ poem.category }}</p>
+            <p>{{ poem.content }}</p>
+            <p>{{ poem.created_by }}</p>
+            <p>{{ poem.gender }}</p>
+            <p>{{ poem.created_on }}<br></p>
+            <p>{{ poem.location }}</p>
+        </div>
+
     </li>
-    <li>
-        <div class="collapsible-header amber lighten-3 lighten-5 grey-text text-darken-2"><i class="fa-solid fa-angle-down">place</i>Second</div>
-        <div class="collapsible-body amber lighten-4 lighten-5 grey-text text-darken-2"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-        <div class="collapsible-header amber lighten-3 lighten-5 grey-text text-darken-2"><i class="fa-solid fa-angle-down">whatshot</i>Third</div>
-        <div class="collapsible-body amber lighten-4 lighten-5 grey-text text-darken-2"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
+    {% endfor %}
 </ul>
 {% endblock %}
