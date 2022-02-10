@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;1,100;1,200;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400&family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;1,100;1,200;1,300&display=swap');
 
 /* ------------------- Set Defaults ------------------------- */
 
@@ -72,4 +72,24 @@ footer {
 
 .collapsible-header {
   border: 1.2px solid #fff;
+}
+
+.poem-title {
+  font-weight: 400;
+  font-family: 'Lemonada', cursive, 'Montserrat';
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.poem-additional-info {
+  font-style: italic;
+}
+
+.poem-content {
+  font-family: 'Lemonada', cursive, 'Montserrat';
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.9rem;
+}
+
 /* ----------------  /Poems ------------------ */
