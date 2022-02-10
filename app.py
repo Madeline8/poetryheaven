@@ -120,10 +120,27 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_poem")
+@app.route("/add_poem", methods=["GET", "POST"])
 def add_poem():
+    if request.method == "POST":
+        poem = {
+            "title": request.form.get("title"),
+            "category": request.form.get("category"),
+            "content": request.form.get("content"),
+            "created_by": session["user"],
+            "gender": request.form.get("gender"),
+            "created_on": request.form.get("created_on"),
+            "location": request.form.get("location")
+
+        }
+        mongo.db.poems.insert_one(poem)
+        flash("New Poem Added!")
+        # return redirect(url_for("profile"))
+        return redirect(url_for("profile", username=session["user"]))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_poem.html", categories=categories)
+    gender_selection = mongo.db.gender_selection.find().sort("gender", 1)
+    return render_template("add_poem.html", categories=categories, gender_selection=gender_selection)
 
 
 if __name__ == "__main__":
