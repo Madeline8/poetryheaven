@@ -173,13 +173,25 @@ def read_poem(poems_id):
 
 @app.route("/update_poem/<poems_id>", methods=["GET", "POST"])
 def update_poem(poems_id):
-    poem = mongo.db.poems.find_one({"_id": ObjectId(poems_id)})
+    if request.method == "POST":
+        submit = {
+            "title": request.form.get("title"),
+            "category": request.form.get("category"),
+            "content": request.form.get("content"),
+            "created_by": session["user"],
+            "gender": request.form.get("gender"),
+            "created_on": request.form.get("created_on"),
+            "location": request.form.get("location")
 
+        }
+        mongo.db.poems.update({"_id": ObjectId(poems_id)}, submit)
+        flash("Poem Successfully Updated!")
+        return redirect(url_for("profile", username=session["user"]))
+
+    poem = mongo.db.poems.find_one({"_id": ObjectId(poems_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     gender = mongo.db.gender_selection.find().sort("gender", 1)
     return render_template("update_poem.html", poem=poem, categories=categories, gender=gender)
-
-
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
