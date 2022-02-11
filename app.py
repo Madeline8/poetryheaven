@@ -36,6 +36,7 @@ def home():
         "home.html", poems=poems, mobile_poems=mobile_poems)
 
 
+# All Poems
 @app.route("/poems")
 def poems():
     poems=mongo.db.poems.find()
@@ -168,6 +169,14 @@ def read_poem(poems_id):
     return render_template(
         "read_poem.html",
         poem=poem)
+
+
+@app.route("/update_poem/<poems_id>", methods=["GET", "POST"])
+def update_poem(poems_id):
+    poem = mongo.db.poems.find_one({"_id": ObjectId(poems_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("update_poem.html", poem=poem, categories=categories)
+
 
 
 if __name__ == "__main__":

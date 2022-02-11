@@ -20,7 +20,7 @@
                     <p class="poem-title"><strong><i class="fa-solid fa-angle-down"></i> {{ poem.title }}</strong></p>
                 </div>
                 <div class="col s5 m3">
-                    <a href="" class="btn-small amber lighten-3 lighten-5 grey-text text-darken-2">UPDATE</a>
+                    <a href="{{ url_for('update_poem', poems_id=poem._id) }}" class="btn-small amber lighten-3 lighten-5 grey-text text-darken-2">UPDATE</a>
                     <a href="" class="btn-small amber lighten-3 lighten-5 grey-text text-darken-2">DELETE</a>
                 </div>
             </div>
