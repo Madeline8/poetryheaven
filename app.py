@@ -193,6 +193,14 @@ def update_poem(poems_id):
     gender = mongo.db.gender_selection.find().sort("gender", 1)
     return render_template("update_poem.html", poem=poem, categories=categories, gender=gender)
 
+
+@app.route("/delete_poem/<poems_id>")
+def delete_poem(poems_id):
+    mongo.db.poems.remove({"_id": ObjectId(poems_id)})
+    flash("Poem Successfully Deleted")
+    return redirect(url_for("profile", username=session["user"]))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),
