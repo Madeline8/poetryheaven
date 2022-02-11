@@ -174,8 +174,10 @@ def read_poem(poems_id):
 @app.route("/update_poem/<poems_id>", methods=["GET", "POST"])
 def update_poem(poems_id):
     poem = mongo.db.poems.find_one({"_id": ObjectId(poems_id)})
+
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("update_poem.html", poem=poem, categories=categories)
+    gender = mongo.db.gender_selection.find().sort("gender", 1)
+    return render_template("update_poem.html", poem=poem, categories=categories, gender=gender)
 
 
 

@@ -3,16 +3,20 @@
 
 <h3 class="grey-text text-darken-2 center-align">Update Poem</h3>
 
-        <div class="row card-panel transparent">
+        <div class="row card-panel amber lighten-4 transparent">
             <form class="col s12" method="POST" action="{{ url_for('update_poem', poems_id=poem._id) }}">
                 <!-- Category selection -->
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fa-solid fa-book prefix grey-text text-darken-2"></i>
                         <select id="category" name="category" class="validate" required>
-                          <option value="" disabled selected>Select Category</option>
+                          <option value="" disabled>Select Category</option>
                           {% for category in categories %}
-                            <option value="{{ category.category }}">{{ category.category }}</option>
+                            {% if category.category == poem.category %}
+                                <option value="{{ category.category }}"selected>{{ category.category }}</option>
+                            {% else %}
+                                <option value="{{ category.category }}">{{ category.category }}</option>
+                            {% endif %}
                           {% endfor %}
                         </select>
                         <label for="category">Poem's Category</label>
@@ -22,7 +26,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fa-solid fa-heading prefix grey-text text-darken-2"></i>
-                        <input id="title" name="title" minlength="2" maxlength="20"
+                        <input id="title" name="title" minlength="2" maxlength="20" value="{{ poem.title }}"
                             type="text" class="validate" required>
                         <label for="title">Title</label>
                     </div>
@@ -31,7 +35,10 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-align-left prefix grey-text text-darken-2"></i>
-                        <textarea id="content" name="content" minlength="2" maxlength="10000"class="materialize-textarea validate" required></textarea>
+                        <!-- Minus symbol means that Jinja will remove unnecessary whitespace, in this case from both sides -->
+                        <textarea id="content" name="content" minlength="2" maxlength="10000"class="materialize-textarea validate" required>
+                            {{- poem.content -}}
+                        </textarea>
                         <label for="content">Poem</label>
                     </div>
                 </div>
@@ -39,7 +46,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-calendar-alt prefix grey-text text-darken-2"></i>
-                        <input id="created_on" name="created_on" type="text" class="datepicker validate" required>
+                        <input id="created_on" name="created_on" type="text" value="{{ poem.created_on }}" class="datepicker validate" required>
                         <label for="created_on">Created On</label>
                     </div>
                 </div>
@@ -49,13 +56,17 @@
                     <div class="input-field col s12">
                         <i class="fa-solid fa-venus-mars prefix grey-text text-darken-2"></i>
                         <select id="gender" name="gender" class="validate" required>
-                            <option value="" disabled selected>Select Gender</option>
-                            {% for gender in gender_selection %}
-                                <option value="{{ gender.gender }}">{{ gender.gender }}</option>
+                            <option value="" disabled>Select Gender</option>
+                            {% for gender in gender %}
+                                {% if gender.gender == poem.gender %}
+                                    <option value="{{ gender.gender }}"selected>{{ gender.gender }}</option>
+                                {% else %}
+                                    <option value="{{ gender.gender }}">{{ gender.gender }}</option>
+                                {% endif %}   
                             {% endfor %}
                         </select>
                         <label for="gender">Choose Your Gender</label>
-                        </div>
+                    </div>
                 </div>
 
                 <!-- Add Location where specific poem has been created -->
@@ -63,19 +74,23 @@
                     <div class="input-field col s12">
                         <i class="fa-solid fa-globe prefix grey-text text-darken-2"></i>
                         <input id="location" name="location" minlength="2" maxlength="30"
-                            type="text" class="validate" required>
+                            type="text" value="{{ poem.location }}" class="validate" required>
                         <label for="location">Location</label>
                     </div>
-
                 <!-- Submit button -->
                 <div class="row">
                     <div class="col s12 center-align">
-                        <button class="btn-large amber lighten-3 lighten-5 grey-text text-darken-2" >
+
+                        <button class="btn-large amber lighten-3 grey-text text-darken-2" >
                             <i class="fa-solid fa-pen-to-square"> Update Poem </i>
                         </button>
+                        <!-- Cancel button -->
+                        <a href="{{ url_for('profile', username=session['user'] ) }}" class="btn-large amber lighten-3 purple-text text-darken-3">
+                            Cancel <i class="fa-solid fa-rectangle-xmark"></i>
+                        </a>
                     </div>
                 </div>
             </form>
     </div>
 
-{% endblock %}
+    {% endblock %}
