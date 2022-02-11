@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400&family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;1,100;1,200;1,300&display=swap');
 
-/* ------------------- Set Defaults ------------------------- */
+/* ------------------- Set Defaults / General------------------------- */
 
 * {
     margin: 0;
     padding: 0;
     border: 0;
 }
+
+.flashes h4 {
+  line-height: 2;
+}
+
 
 /* ------------------- /Set Defaults ------------------------- */
 /* ----------------  Style Navigation Menu ------------------ */
@@ -60,10 +65,6 @@ footer {
 }
 /* ----------------  /Style Footer ------------------ */
 
-.flashes h4 {
-    line-height: 2;
-}
-
 /* ----------------  Poems ------------------ */ 
 .poem-position {
   margin-bottom: 18px;
@@ -91,5 +92,21 @@ footer {
   font-size: 16px;
   line-height: 1.9rem;
 }
-
 /* ----------------  /Poems ------------------ */
+/* ----------------  Profile ------------------ */
+
+.btn-small {
+  margin: 4px;
+}
+
+.collapsible-header .col strong {
+  margin: 4px;
+  line-height:40px;
+}
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+/* ----------------  Profile ------------------ */

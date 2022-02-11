@@ -30,8 +30,8 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    poems=list(mongo.db.poems.find())
-    mobile_poems=[poems[0], poems[2], poems[5]]
+    poems = list(mongo.db.poems.find())
+    mobile_poems = [poems[0], poems[2], poems[5]]
     return render_template(
         "home.html", poems=poems, mobile_poems=mobile_poems)
 
