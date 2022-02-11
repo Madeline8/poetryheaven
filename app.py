@@ -102,12 +102,15 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # get the user's username form database
+    # get the user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    
+    poems = list(mongo.db.poems.find({"created_by": session['user']}))
+    
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, poems=poems)
 
     return redirect(url_for("login"))
 
@@ -141,6 +144,14 @@ def add_poem():
     categories = mongo.db.categories.find().sort("category_name", 1)
     gender_selection = mongo.db.gender_selection.find().sort("gender", 1)
     return render_template("add_poem.html", categories=categories, gender_selection=gender_selection)
+
+# To see a specific poem separately
+@app.route("/read_poem/<poems_id>")
+def read_poem(poems_id):
+    poem = mongo.db.poems.find_one({"_id": ObjectId(poems_id)})
+    return render_template(
+        "read_poem.html",
+        poems=poems)
 
 
 if __name__ == "__main__":
