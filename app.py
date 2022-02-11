@@ -147,11 +147,27 @@ def add_poem():
 
 # To see a specific poem separately
 @app.route("/read_poem/<poems_id>")
+# we are expecting a variable called 'poems_id' to be passed in whenever this
+# URL is accessed
 def read_poem(poems_id):
+    """
+    we define a variable called 'poem' which is an object from the MongoDB
+    it uses the 'poems_id' value to find the right poem in the DB
+    """
     poem = mongo.db.poems.find_one({"_id": ObjectId(poems_id)})
+    """
+    We render the 'read_poems.html' template and pass in the name of a
+    variable that the template will have access to. It makes sense to call
+    this variable 'poem'. This is the left-hand-side of the poem=poem
+    The right-hand side of poem=poem is pointing to the variable we created above (poem = mongo.db.poems...)
+    Now we have access to 'poem' in the template, and it will refer to the 
+    'poem' variable we've created in this function.
+    We need to make sure that in read_poem.html we use {{ poem }} whenever we 
+    want to refer to our poem object.
+    """
     return render_template(
         "read_poem.html",
-        poems=poems)
+        poem=poem)
 
 
 if __name__ == "__main__":

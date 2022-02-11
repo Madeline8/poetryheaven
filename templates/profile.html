@@ -10,78 +10,53 @@
         </div>
     </div>
 </div>
-
-<!-- User's Poems -->
-<div class="row">
-    <div class="col s12">
-        <h3 class="grey-text text-darken-2 center-align">My Poems</h3>
-    </div>
-
-    <div class="col s12 ">
-        <ul class="collapsible">
-            {% for poem in poems %}
-                <li>
-                    <div class="collapsible-header">
-                        <div class="col s2">
-                            <i class="fas fa-caret-down"></i> 
-                        </div>
-                        <div class="col s6">
-                            <h5>
-                                {{ poems.poems}}
-                            </h5>
-                        </div>
-                    </div>
-                </li>
-            {% endfor %}
-            <ul>
-        
-        <ul class="collapsible">
-            <!-- 
+<ul class="collapsible">
+    <!-- 
                 Here you have an object called poems. You are making a for loop and calling each iteration 'poem'. You can then access the individual properties of a poem (which is itself a document in your DB)
             
             -->
-            {% for poem in poems %}
-            <li>
-                <div class="collapsible-header amber lighten-3 lighten-5 grey-text text-darken-2">
-                    <i class="fa-solid fa-angle-down"></i>
-                    <p class="poem-title"><strong>{{ poem.title }}</strong></p>
-                </div>
-        
-                <div class="collapsible-body amber lighten-4 lighten-5 grey-text text-darken-2">
-                    <p class="poem-additional-info">Category: {{ poem.category }}</p><br>
-                    <!-- 
-                        poem.content is a field in an individual poem. Use the splitlines() method to break this field up on each new line.
-        
-                        Let's call each iteration of this a 'line' to make better sense of it when making the for loop.
-                    -->
-                    {% for line in poem.content.splitlines() %}
-                    <!-- 
-                        Each 'line' is just that, a line from the poem.content field in the document.
-                        -->
-                        <p class="poem-content">{{ line }}</p>
-                    {% endfor %}
-                    <br>
-                    <p class="poem-additional-info">Created By: {{ poem.created_by }}</p>
-                    <p class="poem-additional-info">Gender: {{ poem.gender }}</p>
-                    <p class="poem-additional-info">Created On: {{ poem.created_on }}<br></p>
-                    <p class="poem-additional-info">Created In: {{ poem.location }}</p>
-                </div>
-                <!-- View specific poem separately -->
-                <div class="collapsible-body amber lighten-4 lighten-5 grey-text text-darken-2">
-                    <h6><a class = "" href="{{ url_for('read_poem', poems_id=poems_id) }}">View Poem</a></h6>
-
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-        <div class="col s3">
-
+    {% for poem in poems %}
+    <li>
+        <div class="collapsible-header amber lighten-3 lighten-5 grey-text text-darken-2">
+            <i class="fa-solid fa-angle-down"></i>
+            <p class="poem-title"><strong>{{ poem.title }}</strong></p>
         </div>
-        <div class="col s9">
-            
-        </div>
+
+        <div class="collapsible-body amber lighten-4 lighten-5 grey-text text-darken-2">
+            <p class="poem-additional-info">Category: {{ poem.category }}</p><br>
+            <!-- 
+                    poem.content is a field in an individual poem. Use the splitlines() method to break this field up on each new line.
     
-    </div>
+                    Let's call each iteration of this a 'line' to make better sense of it when making the for loop.
+                -->
+            {% for line in poem.content.splitlines() %}
+            <!-- 
+                    Each 'line' is just that, a line from the poem.content field in the document.
+                    -->
+            <p class="poem-content">{{ line }}</p>
+            {% endfor %}
+            <br>
+            <p class="poem-additional-info">Created By: {{ poem.created_by }}</p>
+            <p class="poem-additional-info">Gender: {{ poem.gender }}</p>
+            <p class="poem-additional-info">Created On: {{ poem.created_on }}<br></p>
+            <p class="poem-additional-info">Created In: {{ poem.location }}</p>
+        </div>
+        <!-- View specific poem separately -->
+        <div class="collapsible-body amber lighten-4 lighten-5 grey-text text-darken-2">
+            <h6><a class="" href="{{ url_for('read_poem', poems_id=poem._id) }}">View Poem</a></h6>
+
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+<div class="col s3">
+
+</div>
+<div class="col s9">
+
+</div>
+
+</div>
 </div>
 
 
