@@ -39,10 +39,16 @@ def home():
 # All Poems
 @app.route("/poems")
 def poems():
-    poems=mongo.db.poems.find()
+    poems=list(mongo.db.poems.find())
     return render_template(
         "poems.html", poems=poems)
 
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    poems = list(mongo.db.poems.find({"$text": {"$search": query}}))
+    return render_template("poems.html", poems=poems)
 
 # Sign Up Page
 @app.route("/signup", methods=["GET", "POST"])

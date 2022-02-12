@@ -1,41 +1,63 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="grey-text text-darken-2 center-align">All Poems</h3>
+    <h3 class="grey-text text-darken-2 center-align">All Poems</h3>
 
-<ul class="collapsible">
-    <!-- 
-        Here you have an object called poems. You are making a for loop and calling each iteration 'poem'. You can then access the individual properties of a poem (which is itself a document in your DB)
-    
-    -->
-    {% for poem in poems %}
-    <li>
-        <div class="collapsible-header amber lighten-3 lighten-5 grey-text text-darken-2">
-            <i class="fa-solid fa-angle-down"></i>
-            <p class="poem-title"><strong>{{ poem.title }}</strong></p>
-        </div>
+    <div class="row-card-panel grey-text text-darken-2">
+        <form action="{{ url_for('search')}}" method="post" class="col 12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <i class="fa-solid fa-magnifying-glass prefix grey-text text-darken-2"></i>
+                    <input type="text" name="query" id="query" minlength="2" class="validate" required>
+                    <label for="query">Search Poems</label>
+                </div>
 
-        <div class="collapsible-body amber lighten-4 grey-text text-darken-2">
-            <p class="poem-additional-info">Category: {{ poem.category }}</p><br>
+                <div class="col s12 m4">
+                    <button type="submit" class="amber lighten-3 btn grey-text text-darken-2">
+                        <i class="fa-solid fa-magnifying-glass">Search</i>
+                    </button>
+                    <a href="{{ url_for('poems') }}" class="amber lighten-3 btn grey-text text-darken-2">Reset</a>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {% if poems|length > 0 %}
+        <ul class="collapsible">
             <!-- 
-                poem.content is a field in an individual poem. Use the splitlines() method to break this field up on each new line.
-
-                Let's call each iteration of this a 'line' to make better sense of it when making the for loop.
+                Here you have an object called poems. You are making a for loop and calling each iteration 'poem'. You can then access the individual properties of a poem (which is itself a document in your DB)    
             -->
-            {% for line in poem.content.splitlines() %}
-            <!-- 
-                Each 'line' is just that, a line from the poem.content field in the document.
-             -->
-                <p class="poem-content">{{ line }}</p>
-            {% endfor %}
-            <br>
-            <p class="poem-additional-info">Created By: {{ poem.created_by }}</p>
-            <p class="poem-additional-info">Gender: {{ poem.gender }}</p>
-            <p class="poem-additional-info">Created On: {{ poem.created_on }}<br></p>
-            <p class="poem-additional-info">Created In: {{ poem.location }}</p>
-        </div>
+            {% for poem in poems %}
+            <li>
+                <div class="collapsible-header amber lighten-3 lighten-5 grey-text text-darken-2">
+                    <i class="fa-solid fa-angle-down"></i>
+                    <p class="poem-title"><strong>{{ poem.title }}</strong></p>
+                </div>
 
-    </li>
-    {% endfor %}
-</ul>
+                <div class="collapsible-body amber lighten-4 grey-text text-darken-2">
+                    <p class="poem-additional-info">Category: {{ poem.category }}</p><br>
+                    <!-- 
+                        poem.content is a field in an individual poem. Use the splitlines() method to break this field up on each new line.
+
+                        Let's call each iteration of this a 'line' to make better sense of it when making the for loop.
+                    -->
+                    {% for line in poem.content.splitlines() %}
+                    <!-- 
+                        Each 'line' is just that, a line from the poem.content field in the document.
+                    -->
+                    <p class="poem-content">{{ line }}</p>
+                    {% endfor %}
+                    <br>
+                    <p class="poem-additional-info">Created By: {{ poem.created_by }}</p>
+                    <p class="poem-additional-info">Gender: {{ poem.gender }}</p>
+                    <p class="poem-additional-info">Created On: {{ poem.created_on }}<br></p>
+                    <p class="poem-additional-info">Created In: {{ poem.location }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3 class="grey-text text-darken-2 center-align">No Results Found!</h3>
+    {% endif %}
 {% endblock %}
