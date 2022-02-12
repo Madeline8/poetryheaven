@@ -35,7 +35,18 @@
                         {% if session.user|lower == "admin"|lower %}
                         <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('categories') }}">Manage Categories</a></li>
                         {% endif %}
-                        <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('logout') }}">Log Out</a></li>
+                        <!-- Logout Modal Trigger  -->
+                        <li><a class="nav-link grey-text text-darken-2 modal-trigger" href="#logout-modal">Log Out</a></li>
+                        <!-- Logout Modal structure  -->
+                        <div id="logout-modal" class="modal">
+                            <div class="modal-content amber lighten-4 transparent grey-text text-darken-2">
+                            <h4>Are you sure you wish to logout?</h4>
+                            <div class="modal-footer amber lighten-4 transparent">
+                                <a href="#" class="modal-close btn-flat">Cancel</a>
+                                <a href="{{ url_for('logout') }}" class="modal-close btn-flat">Logout</a>
+                            </div>
+                            </div>
+                        </div>
                     {% else %}
                         <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('login') }}">Log In</a></li>
                         <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('signup') }}">Sign Up</a></li>
