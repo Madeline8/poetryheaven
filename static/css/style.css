@@ -12,6 +12,10 @@
   line-height: 2;
 }
 
+.card-panel {
+  /* margin-top: 28px; */
+  background-color: rgba(255,224,130,0.90);
+}
 
 /* ------------------- /Set Defaults ------------------------- */
 /* ----------------  Style Navigation Menu ------------------ */
