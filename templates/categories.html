@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="grey-text text-darken-2 center-align"> Manage Categories </h3>
+
+<div class="row">
+    {% for category in categories %}
+        <div class="col s12 m3">
+            <div class="card amber lighten-3 lighten-5 center-align">
+                <div class="card-content grey-text text-darken-2">
+                    <span class="card-title"><strong>{{ category.category }}</strong></span>
+                </div>
+                <div class="card-action">
+                    <a href="#" class="btn-small amber lighten-3 grey-text text-darken-2">Update</a>
+                    <a href="#" class="btn-small amber lighten-3 lighten-5 grey-text text-darken-2">Delete</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

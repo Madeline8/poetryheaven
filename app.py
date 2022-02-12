@@ -201,6 +201,12 @@ def delete_poem(poems_id):
     return redirect(url_for("profile", username=session["user"]))
 
 
+@app.route("/categories")
+def categories():
+    categories = list(mongo.db.categories.find().sort("category", 1))
+    return render_template("categories.html", categories=categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),

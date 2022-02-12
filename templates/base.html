@@ -32,7 +32,9 @@
                     {% if session.user%}
                         <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('add_poem') }}">Add New Poem</a></li>
-                        <li><a class="nav-link grey-text text-darken-2" href="#">Categories</a></li>
+                        {% if session.user|lower == "admin"|lower %}
+                        <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('categories') }}">Manage Categories</a></li>
+                        {% endif %}
                         <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
                         <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('login') }}">Log In</a></li>
@@ -51,7 +53,9 @@
             {% if session.user%}
                 <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('add_poem') }}">Add New Poem</a></li>
-                <li><a class="nav-link grey-text text-darken-2" href="#">Categories</a></li>
+                {% if session.user|lower == "admin"|lower %}
+                <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('categories') }}">Manage Categories</a></li>
+                {% endif %}
                 <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
                 <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('login') }}">Log In</a></li>
