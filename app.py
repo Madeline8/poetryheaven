@@ -115,7 +115,6 @@ def profile(username):
     
     poems = list(mongo.db.poems.find({"created_by": session['user']}))
     
-
     if session["user"]:
         return render_template("profile.html", username=username, poems=poems)
 

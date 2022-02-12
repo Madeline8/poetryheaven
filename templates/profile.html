@@ -21,7 +21,18 @@
                 </div>
                 <div class="col s5 m3">
                     <a href="{{ url_for('update_poem', poems_id=poem._id) }}" class="btn-small amber lighten-3 lighten-5 grey-text text-darken-2">UPDATE</a>
-                    <a href="{{ url_for('delete_poem', poems_id=poem._id) }}" class="btn-small amber lighten-3 lighten-5 grey-text text-darken-2">DELETE</a>
+                    <!-- Modal delete trigger (credited in README file: https://materializecss.com/modals.html) -->
+                    <a class="btn-small amber lighten-3 lighten-5 grey-text text-darken-2 modal-trigger" href="#modal-delete{{ loop.index }}" >DELETE</a>
+                    <!-- Modal delete Structure -->
+                    <div id="modal-delete{{ loop.index }}" class="modal">
+                        <div class="modal-content amber lighten-4 transparent">
+                            <h4>Please confirm if you wish to delete this poem</h4>
+                        </div>
+                        <div class="modal-footer amber lighten-4 transparent">
+                            <a href="#" class="modal-close btn-flat">Cancel</a>
+                            <a href="{{ url_for('delete_poem', poems_id=poems._id)}}" class="modal-close btn-flat">Delete</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="collapsible-body amber lighten-4 lighten-5 grey-text text-darken-2">
