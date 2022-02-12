@@ -19,7 +19,7 @@
                     <span class="card-title"><strong>{{ category.category }}</strong></span>
                 </div>
                 <div class="card-action">
-                    <a href="#" class="btn-small amber lighten-3 grey-text text-darken-2">Update</a>
+                    <a href="{{ url_for('update_category', category_id=category._id) }}" class="btn-small amber lighten-3 grey-text text-darken-2">Update</a>
                     <a href="#" class="btn-small amber lighten-3 lighten-5 grey-text text-darken-2">Delete</a>
                 </div>
             </div>
