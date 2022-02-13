@@ -133,6 +133,10 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    # Profile is only accessible by registered users 
+    if not session.get("user"):
+        return render_template("404.html")
+
     # get the user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -155,6 +159,11 @@ def logout():
 
 @app.route("/add_poem", methods=["GET", "POST"])
 def add_poem():
+    # Add Poem is only accessible by registered users 
+    if not session.get("user"):
+        return render_template("404.html")
+
+    # Add new poem to db 
     if request.method == "POST":
         poem = {
             "title": request.form.get("title"),
@@ -202,6 +211,10 @@ def read_poem(poems_id):
 
 @app.route("/update_poem/<poems_id>", methods=["GET", "POST"])
 def update_poem(poems_id):
+    # Update Poem is only accessible by registered users 
+    if not session.get("user"):
+        return render_template("404.html")
+
     if request.method == "POST":
         submit = {
             "title": request.form.get("title"),
@@ -232,6 +245,10 @@ def delete_poem(poems_id):
 
 @app.route("/categories")
 def categories():
+    # Categories field is only accessible by admin
+    if not session.get("user") == "admin":
+        return render_template("404.html")
+
     categories = list(mongo.db.categories.find().sort("category", 1))
     return render_template("categories.html", categories=categories)
 
@@ -268,6 +285,16 @@ def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("categories"))
+
+# Error Handlers 
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("404.html"), 404
+
+
+@app.errorhandler(500)
+def server_error(e):
+    return render_template("500.html"), 500
 
 
 if __name__ == "__main__":

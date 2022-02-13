@@ -102,8 +102,8 @@ footer {
 /* ----------------  Profile ------------------ */
 
 .user-profile-card-panel {
-  margin-top: 30px; important!
-  background-color: rgba(255,224,130,0.40); important!
+  margin-top: 30px; 
+  background-color: rgba(255,224,130,0.40);
 }
 
 .btn-small {
