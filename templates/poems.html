@@ -23,6 +23,23 @@
         </form>
     </div>
 
+    <!--Filter for specific categories -->
+    {% if poems|length > 0 %}
+    <div class="row">
+        <div class="col s12 center">
+            <h5 class="">Filter By:</h5>
+            <a href="{{ url_for('filter_poems', category='Death') }}" class="btn deep-purple lighten-2">Death</a>
+            <a href="{{ url_for('filter_poems', category='family') }}" class="btn deep-purple lighten-2">Family</a>
+            <a href="{{ url_for('filter_poems', category='Friendship') }}" class="btn deep-purple lighten-2">Friendship</a>
+            <a href="{{ url_for('filter_poems', category='Humour') }}" class="btn deep-purple lighten-2">Humour</a>
+            <a href="{{ url_for('filter_poems', category='Life') }}" class="btn deep-purple lighten-2">Life</a>
+            <a href="{{ url_for('filter_poems', category='Love') }}" class="btn deep-purple lighten-2">Love</a>
+            <a href="{{ url_for('filter_poems', category='Nature') }}" class="btn deep-purple lighten-2">Nature</a>
+            <a href="{{ url_for('filter_poems', category='Spiritual') }}" class="btn deep-purple lighten-2">Spiritual</a>
+        </div>
+    </div>
+    {% endif %}
+
     {% if poems|length > 0 %}
         <ul class="collapsible">
             <!-- 

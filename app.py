@@ -44,6 +44,30 @@ def poems():
         "poems.html", poems=poems)
 
 
+@app.route("/poems/<category>")
+def filter_poems(category):
+    if category == "Death":
+        poems = list(mongo.db.poems.find({"category": "Death"}))
+    elif category == "Family":
+        poems = list(mongo.db.poems.find({"category": "Family"}))
+    elif category == "Friendship":
+        poems = list(mongo.db.poems.find({"category": "Friendship"}))
+    elif category == "Humour":
+        poems = list(mongo.db.poems.find({"category": "Humour"}))
+    elif category == "Life":
+        poems = list(mongo.db.poems.find({"category": "Life"}))
+    elif category == "Love":
+        poems = list(mongo.db.poems.find({"category": "Love"}))
+    elif category == "Nature":
+        poems = list(mongo.db.poems.find({"category": "Nature"}))
+    elif category == "Family":
+        poems = list(mongo.db.poems.find({"category": "Family"}))
+    else:
+        poems = list(mongo.db.poems.find({"category": "Spiritual"}))
+    return render_template ("poems.html", poems=poems, category=category)
+
+
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -147,7 +171,7 @@ def add_poem():
         # return redirect(url_for("profile"))
         return redirect(url_for("profile", username=session["user"]))
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
+    categories = mongo.db.categories.find().sort("category", 1)
     gender_selection = mongo.db.gender_selection.find().sort("gender", 1)
     return render_template("add_poem.html", categories=categories, gender_selection=gender_selection)
 
@@ -194,7 +218,7 @@ def update_poem(poems_id):
         return redirect(url_for("profile", username=session["user"]))
 
     poem = mongo.db.poems.find_one({"_id": ObjectId(poems_id)})
-    categories = mongo.db.categories.find().sort("category_name", 1)
+    categories = mongo.db.categories.find().sort("category", 1)
     gender = mongo.db.gender_selection.find().sort("gender", 1)
     return render_template("update_poem.html", poem=poem, categories=categories, gender=gender)
 
