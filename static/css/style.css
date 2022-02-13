@@ -17,11 +17,23 @@
   background-color: rgba(255,224,130,0.90);
 }
 
+.nav-ul {
+  margin-right: 3rem;
+}
+
+/* hamburger icon */
+.fa-bars:before {
+  color:#7e57c2;
+  font-size: 2.1rem;
+}
+
 /* ------------------- /Set Defaults ------------------------- */
 /* ----------------  Style Navigation Menu ------------------ */
 
 .nav-link {
-    font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: 'Lemonada', cursive, 'Montserrat';
 }
 
 /* ----------------  /Style Navigation Menu ------------------ */
@@ -64,6 +76,7 @@ footer {
   }
 /* ----------------  /Style Footer ------------------ */
 
+/* ----------------  Home Page ------------------ */
 .benefits-heading {
   color: #7e57c2;
 }
@@ -71,6 +84,11 @@ footer {
 .home-page-info {
   padding: 12px;
 }
+
+.style-benefits-info {
+  padding: 30px;
+}
+/* ----------------  Home Page ------------------ */
 /* ----------------  Poems ------------------ */ 
 .poem-position {
   margin-bottom: 18px;
@@ -121,3 +139,13 @@ footer {
   margin-bottom: 5px;
 }
 /* ----------------  Profile ------------------ */
+
+/* ----------------  Media Queries------------------ */
+/* If screen size is 600px wide, or less */
+
+/* Set padding for benefits info on small devices  */
+@media screen and (max-width: 600px) {
+  .style-benefits-info {
+    padding: 10px!important;
+  }
+}

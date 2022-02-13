@@ -44,6 +44,7 @@ def poems():
         "poems.html", poems=poems)
 
 
+# Filter poems by category 
 @app.route("/poems/<category>")
 def filter_poems(category):
     if category == "Death":
@@ -67,17 +68,19 @@ def filter_poems(category):
     return render_template ("poems.html", poems=poems, category=category)
 
 
-
+# Search functionality on poems.html
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     poems = list(mongo.db.poems.find({"$text": {"$search": query}}))
     return render_template("poems.html", poems=poems)
 
+
 # Sign Up Page
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
+
         #check if username exists
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -88,15 +91,16 @@ def signup():
 
         signup = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "gender": request.form.get("gender").lower()
         }
+
         mongo.db.users.insert_one(signup)
 
         #  put new user into session
         session["user"] = request.form.get("username").lower()
         flash("You have successfully Signed Up!")
         return redirect(url_for("profile", username=session["user"]))
-        return redirect(url_for("signup", username=session["user"]))
 
 
     return render_template("signup.html")
@@ -189,21 +193,7 @@ def add_poem():
 # we are expecting a variable called 'poems_id' to be passed in whenever this
 # URL is accessed
 def read_poem(poems_id):
-    """
-    we define a variable called 'poem' which is an object from the MongoDB
-    it uses the 'poems_id' value to find the right poem in the DB
-    """
     poem = mongo.db.poems.find_one({"_id": ObjectId(poems_id)})
-    """
-    We render the 'read_poems.html' template and pass in the name of a
-    variable that the template will have access to. It makes sense to call
-    this variable 'poem'. This is the left-hand-side of the poem=poem
-    The right-hand side of poem=poem is pointing to the variable we created above (poem = mongo.db.poems...)
-    Now we have access to 'poem' in the template, and it will refer to the 
-    'poem' variable we've created in this function.
-    We need to make sure that in read_poem.html we use {{ poem }} whenever we 
-    want to refer to our poem object.
-    """
     return render_template(
         "read_poem.html",
         poem=poem)
@@ -238,6 +228,9 @@ def update_poem(poems_id):
 
 @app.route("/delete_poem/<poems_id>")
 def delete_poem(poems_id):
+    """
+    Deletes user's poem
+    """
     mongo.db.poems.remove({"_id": ObjectId(poems_id)})
     flash("Poem Successfully Deleted")
     return redirect(url_for("profile", username=session["user"]))
