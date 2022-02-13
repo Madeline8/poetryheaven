@@ -64,6 +64,13 @@ footer {
   }
 /* ----------------  /Style Footer ------------------ */
 
+.benefits-heading {
+  color: #7e57c2;
+}
+
+.home-page-info {
+  padding: 12px;
+}
 /* ----------------  Poems ------------------ */ 
 .poem-position {
   margin-bottom: 18px;
@@ -93,6 +100,11 @@ footer {
 }
 /* ----------------  /Poems ------------------ */
 /* ----------------  Profile ------------------ */
+
+.user-profile-card-panel {
+  margin-top: 30px; important!
+  background-color: rgba(255,224,130,0.40); important!
+}
 
 .btn-small {
   margin: 4px;

@@ -1,49 +1,79 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-<!-- About -->
-<div class="container">
-    <div class="row">
-        <div class="col s12">
-            <h3 class="center-align">Tremendous Benefits of Writing Poems</h3>
-            <h5 class="center-align">
-                Creativity
-            </h5>
-            <p>
-                Your ideas and creativity grow as you grow. For instance, when you were a teenager perhaps you weren't interest in writing. Years later, you are now participating in poetry contests. This is just to show you that when you start writing poems, you might not be at your best but as you keep writing, eventually, you become more creative. Through creativity you will be able to provide your writers with amazing content. 
-            </p>
-            <h5 class="center-align"> 
-                Connection
-            </h5>
-            <p>
-                When you are a beginner in writing your poems, you probably just do it to satisfy your own needs or even as a hobby. What you forget is when you present your work to poetry contests, it attracts new readers on a daily basis. This will get you feedback and reviews. Basically, you will be able to make new friends. Whether they will be your readers or your fellow contestants, you will get to connect with new people and these connections might go a long way to helping you in the future. 
-            </p>
-            <h5 class="center-align"> 
-                Emotional
-            </h5>
-            <p>
-                As you write your poems on a daily basis, you get to practice another important skill that you may not be aware of. You sometimes express your emotions and this is a good thing. You get to learn how to do it with ease and eventually, that will help you in ways you cannot imagine. You might even release your anger and emotional pain by writing these poems that will be used in poetry competitions. Basically, poetry is an amazing therapeutic way of self expression that leads to healing. 
-            </p>
-            <h5 class="center-align"> 
-                Self-awareness and Language skills
-            </h5>
-            <p>
-                How often do you listen to yourself? Through poetry writing, you are able to have a look at what you wrote and this could be a direct reflection of yourself. This means that you will not find self awareness as a foreign thing since you do it through poetry. As you develop your self awareness skills, you also develop your language skills. The truth about poetry is that every time you write a poem, it needs to sound original and unique from the other pieces you have written in the past. This is very essential if you have readers who read your poems on a regular basis. You wouldn't want your audience to be reading the same thing every now and then. Poem readers need to feel connected to your poems and this can only happen if your language and writing skills are amazing.
-            </p>
+<div class="row home-page-info">
+    <div class="col s12 m3">
+        <h5 class="center-align deep-purple-text text-lighten-1">Publish your poetry online</h5>
+        <p class="center-align grey-text text-darken-2">
+            The web's largest poetry writing group - famous and amateur poets from around the world. Read the best
+            poetry of our generation.
+        </p>
+        <br>
+        <h5 class="center-align deep-purple-text text-lighten-1">Upcoming Events</h5><br>
+        <p class="center-align grey-text text-darken-2">
+            <strong>Young Poets Takeover</strong>
+        </p>
+        <p class="center-align grey-text text-darken-2">
+            Saturday, 23rd April @ Poetry Heaven Cafe <br>
+            Find out more <a href="#">here!</a>
+        </p>
+    </div>
+    <div class="col s12 m9">
+        <!-- Benefits of writing poetry -->
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h3 class="test center-align grey-text text-darken-2">Tremendous Benefits of Writing Poems</h3>
+                    <h5 class="center-align benefits-heading">
+                        Creativity
+                    </h5>
+                    <p class="center-align grey-text text-darken-2">
+                        Your ideas and creativity grow as you grow. For instance, when you were a teenager perhaps you
+                        weren't interest in writing. Years later, you are now participating in poetry contests. This is
+                        just to show you that when you start writing poems, you might not be at your best but as you
+                        keep writing, eventually, you become more creative. Through creativity you will be able to
+                        provide your writers with amazing content.
+                    </p>
+                    <h5 class="center-align benefits-heading">
+                        Connection
+                    </h5>
+                    <p class="center-align grey-text text-darken-2">
+                        When you are a beginner in writing your poems, you probably just do it to satisfy your own needs
+                        or even as a hobby. What you forget is when you present your work to poetry contests, it
+                        attracts new readers on a daily basis. This will get you feedback and reviews. Basically, you
+                        will be able to make new friends. Whether they will be your readers or your fellow contestants,
+                        you will get to connect with new people and these connections might go a long way to helping you
+                        in the future.
+                    </p>
+                    <h5 class="center-align benefits-heading">
+                        Emotional
+                    </h5>
+                    <p class="center-align grey-text text-darken-2">
+                        As you write your poems on a daily basis, you get to practice another important skill that you
+                        may not be aware of. You sometimes express your emotions and this is a good thing. You get to
+                        learn how to do it with ease and eventually, that will help you in ways you cannot imagine. You
+                        might even release your anger and emotional pain by writing these poems that will be used in
+                        poetry competitions. Basically, poetry is an amazing therapeutic way of self expression that
+                        leads to healing.
+                    </p class="center-align grey-text text-darken-2">
+                    <h5 class="center-align benefits-heading">
+                        Self-awareness and Language skills
+                    </h5>
+                    <p class="center-align grey-text text-darken-2">
+                        How often do you listen to yourself? Through poetry writing, you are able to have a look at what
+                        you wrote and this could be a direct reflection of yourself. This means that you will not find
+                        self awareness as a foreign thing since you do it through poetry. As you develop your self
+                        awareness skills, you also develop your language skills. The truth about poetry is that every
+                        time you write a poem, it needs to sound original and unique from the other pieces you have
+                        written in the past. This is very essential if you have readers who read your poems on a regular
+                        basis. You wouldn't want your audience to be reading the same thing every now and then. Poem
+                        readers need to feel connected to your poems and this can only happen if your language and
+                        writing skills are amazing.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-
-<!-- 
-    {% for poem in poems %}
-        {{ poem.title }}<br>
-        {{ poem.created_by }}<br>
-        {{ poem.created_on }}<br>
-        {{ poem.category }}<br>
-        {{ poem.location }}<br>
-        {{ poem.content }}<br>
-        {{ poem.gender }}<br>
-    {% endfor%}
-{% endblock %} -->
+{% endblock %}
