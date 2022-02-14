@@ -30,13 +30,15 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
+    """
+    This is the function for home.
+    """
     poems = list(mongo.db.poems.find())
     mobile_poems = [poems[0], poems[2], poems[5]]
     return render_template(
         "home.html", poems=poems, mobile_poems=mobile_poems)
 
 
-# All Poems
 @app.route("/poems")
 def poems():
     poems=list(mongo.db.poems.find())
@@ -186,7 +188,9 @@ def add_poem():
 
     categories = mongo.db.categories.find().sort("category", 1)
     gender_selection = mongo.db.gender_selection.find().sort("gender", 1)
-    return render_template("add_poem.html", categories=categories, gender_selection=gender_selection)
+    
+    return render_template("add_poem.html", 
+                            categories=categories,             gender_selection=gender_selection)
 
 # To see a specific poem separately
 @app.route("/read_poem/<poems_id>")

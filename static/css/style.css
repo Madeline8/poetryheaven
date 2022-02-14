@@ -31,9 +31,9 @@
 /* ----------------  Style Navigation Menu ------------------ */
 
 .nav-link {
-  font-size: 1.5rem;
-  font-weight: 400;
-  font-family: 'Lemonada', cursive, 'Montserrat';
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: 'Montserrat','Sans Serif';
 }
 
 /* ----------------  /Style Navigation Menu ------------------ */
@@ -148,4 +148,9 @@ footer {
   .style-benefits-info {
     padding: 10px!important;
   }
+}
+
+@media only screen and (min-width: 992px)
+html {
+    font-size: 13.5px;
 }
