@@ -143,7 +143,22 @@ footer {
   margin-right: auto;
   margin-bottom: 5px;
 }
-/* --------------------  Profile ------------------------ */
+/* -------------------- / Profile ------------------------ */
+
+/* --------------------  Events ------------------------ */
+
+.young-poet-img {
+  background-image: url(../images/event-young-poets.jpg);
+  max-width: 15rem;
+  max-height: 18rem;
+}
+
+.feedback-session-img {
+  background-image: url(../images/events-img-feedback-session.jpg);
+  max-width: 15rem;
+  max-height: 18rem;
+}
+/* --------------------  /Events ------------------------ */
 
 /* -------------------  Media Queries------------------- */
 
@@ -155,10 +170,11 @@ footer {
 }
 
 /* Change needed to fix the issue of ul list in navbar going outside of the navbar  */
-@media only screen and (min-width: 992px)
+/* @media only screen and (min-width: 992px){
 html {
-    font-size: 13.5px;
+  font-size: 13.5px;
 }
+} */
 
 .background {
     background-image: url('../images/background3.jpg');
@@ -174,5 +190,8 @@ html {
 }
 
 @media (min-width: 768px) {
-  padding-right: 25px!important;
+  /* Set padding for benefits info on home page  */
+  .style-benefits-info {
+    padding: 25px!important;
+}
 }
