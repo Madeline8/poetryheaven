@@ -19,27 +19,27 @@
 <body>
     <header>
         <!-- top navbar -->
-        <nav class="nav-extended deep-purple lighten-5">
+        <nav class="nav-extended grey lighten-5">
             <div class="nav-wrapper">
-                <a href="{{ url_for('home') }}" class="logo"><img src="/static/images/poetryheaven_logo_medium.png"
+                <a href="{{ url_for('home') }}" class="logo"><img src="/static/images/logo2.png"
                         alt="Poetry Heaven Logo"></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons"><i
                             class="fas fa-bars"></i></i></a>
                 <ul class="nav-ul right hide-on-med-and-down">
                     <br>
-                    <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('home') }}">Home</a></li>
-                    <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('poems') }}">Poems</a></li>
+                    <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('home') }}">Home</a></li>
+                    <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('poems') }}">Poems</a></li>
                     {% if session.user%}
-                        <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('add_poem') }}">Add New Poem</a></li>
+                        <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('add_poem') }}">Add New Poem</a></li>
                         {% if session.user|lower == "admin"|lower %}
-                        <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('categories') }}">Manage Categories</a></li>
+                        <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('categories') }}">Manage Categories</a></li>
                         {% endif %}
                         <!-- Logout Modal Trigger  -->
-                        <li><a class="nav-link grey-text text-darken-2 modal-trigger" href="#logout-modal">Log Out</a></li>
+                        <li><a class="nav-link grey-text text-darken-3 modal-trigger" href="#logout-modal">Log Out</a></li>
                         <!-- Logout Modal structure  -->
                         <div id="logout-modal" class="modal">
-                            <div class="modal-content amber lighten-4 transparent grey-text text-darken-2">
+                            <div class="modal-content amber lighten-4 transparent grey-text text-darken-3">
                             <h4>Are you sure you wish to logout?</h4>
                             <div class="modal-footer amber lighten-4 transparent">
                                 <a href="#" class="modal-close btn-flat">Cancel</a>
@@ -48,31 +48,31 @@
                             </div>
                         </div>
                     {% else %}
-                        <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('login') }}">Log In</a></li>
-                        <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('signup') }}">Sign Up</a></li>
+                        <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('login') }}">Log In</a></li>
+                        <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('signup') }}">Sign Up</a></li>
                     {% endif %}
-                    <li><a class="nav-link grey-text text-darken-2" href="#">Events</a></li>
+                    <li><a class="nav-link grey-text text-darken-3" href="#">Events</a></li>
                 </ul>
             </div>
         </nav>
         <!--  mobile sidenav -->
-        <ul class="sidenav deep-purple lighten-5" id="mobile-demo">
-            <a href="{{ url_for('home') }}" class="logo"><img src="static/images/poetryheaven_logo_small.png"
+        <ul class="sidenav grey lighten-5" id="mobile-demo">
+            <a href="{{ url_for('home') }}" class="logo"><img src="static/images/logo2.png"
                     alt="Poetry Heaven Logo"></a>
-            <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('home') }}">Home</a></li>
-            <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('poems') }}">Poems</a></li>
+            <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('home') }}">Home</a></li>
+            <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('poems') }}">Poems</a></li>
             {% if session.user%}
-                <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('add_poem') }}">Add New Poem</a></li>
+                <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('add_poem') }}">Add New Poem</a></li>
                 {% if session.user|lower == "admin"|lower %}
-                <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('categories') }}">Manage Categories</a></li>
+                <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('categories') }}">Manage Categories</a></li>
                 {% endif %}
-                <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('logout') }}">Log Out</a></li>
+                <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
-                <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('login') }}">Log In</a></li>
-                <li><a class="nav-link grey-text text-darken-2" href="{{ url_for('signup') }}">Sign Up</a></li>
+                <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('login') }}">Log In</a></li>
+                <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('signup') }}">Sign Up</a></li>
             {% endif %}
-            <li><a class="nav-link grey-text text-darken-2" href="#">Events</a></li>
+            <li><a class="nav-link grey-text text-darken-3" href="#">Events</a></li>
         </ul>
     </header>
 
@@ -89,60 +89,60 @@
         {% endwith %}
     </section>
 
-    <main>
+    <main class="background">
         {% block content %}
         {% endblock %}
     </main>
 
     <!-- Footer -->
-    <footer class="page-footer deep-purple lighten-5 footer-style">
+    <footer class="page-footer grey lighten-5 footer-style">
         <div class="row">
             <div class="col s12 m4 center-align">
-                <h4 class="grey-text text-darken-2">Poetry Heaven <br> </h4>
-                <h5 class="grey-text text-darken-2">Feel. Create. Connect.</h5>
-                <p class="grey-text text-darken-2">
+                <h4 class="grey-text text-darken-3">Poetry Heaven <br> </h4>
+                <h5 class="grey-text text-darken-3">Feel. Create. Connect.</h5>
+                <p class="grey-text text-darken-3">
                     Share your talent with the whole World! <br>
                     Home base for poets, from beginners to experts.
                 </p>
             </div>
             <div class="col s12 m4 center-align">
-                <h4 class="center grey-text text-darken-2">CONTACT</h4>
-                <p class="center grey-text text-darken-2">
+                <h4 class="center grey-text text-darken-3">CONTACT</h4>
+                <p class="center grey-text text-darken-3">
                     poetryheaven@email.com
                 </p>
             </div>
             <div class="col s12 m4 center-align">
                 <ul class="list-inline">
                     <li>
-                        <a class="icon-footer right grey-text text-darken-2" target="_blank" rel="noreferrer"
+                        <a class="icon-footer right grey-text text-darken-3" target="_blank" rel="noreferrer"
                             href="https://github.com/Madeline8/poetryheaven">
                             <i class="fab fa-github" aria-hidden="true"></i>
                             <span class="sr-only">GitHub</span>
                         </a>
                     </li>
                     <li>
-                        <a class="icon-footer right grey-text text-darken-2" target="_blank" rel="noreferrer"
+                        <a class="icon-footer right grey-text text-darken-3" target="_blank" rel="noreferrer"
                             href="https://www.linkedin.com/in/magdalena-slapek/">
                             <i class="fab fa-linkedin-in" aria-hidden="true"></i>
                             <span class="sr-only">Linkedin</span>
                         </a>
                     </li>
                     <li>
-                        <a class="icon-footer right grey-text text-darken-2" target="_blank" rel="noreferrer"
+                        <a class="icon-footer right grey-text text-darken-3" target="_blank" rel="noreferrer"
                             href="https://www.facebook.com/">
                             <i class="fab fa-facebook" aria-hidden="true"></i></a>
                         <span class="sr-only">Facebook</span>
                         </a>
                     </li>
                     <li>
-                        <a class="icon-footer right grey-text text-darken-2" target="_blank" rel="noreferrer"
+                        <a class="icon-footer right grey-text text-darken-3" target="_blank" rel="noreferrer"
                             href="https://twitter.com/">
                             <i class="fab fa-twitter" aria-hidden="true"></i></i>
                             <span class="sr-only">Twitter</span>
                         </a>
                     </li>
                 </ul>
-                <p class=" grey-text text-darken-2">
+                <p class=" grey-text text-darken-3">
                     © 2022 Magdalena Slapek
                 </p>
             </div>

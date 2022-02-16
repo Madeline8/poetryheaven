@@ -2,22 +2,22 @@
 {% block content %}
 
 <div class="container">
-    <h3 class="grey-text text-darken-2 center-align">All Poems</h3>
+    <h3 class="grey-text text-darken-3 center-align">All Poems</h3>
 
-    <div class="row-card-panel grey-text text-darken-2">
+    <div class="row-card-panel grey-text text-darken-3">
         <form action="{{ url_for('search')}}" method="post" class="col 12">
             <div class="row valign-wrapper center-align">
                 <div class="input-field col s12 m8">
-                    <i class="fa-solid fa-magnifying-glass prefix grey-text text-darken-2"></i>
+                    <i class="fa-solid fa-magnifying-glass prefix grey-text text-darken-3"></i>
                     <input type="text" name="query" id="query" minlength="2" class="validate" required>
                     <label for="query">Search Poems</label>
                 </div>
 
                 <div class="col s12 m4">
-                    <button type="submit" class="amber lighten-3 btn grey-text text-darken-2">
+                    <button type="submit" class="amber lighten-3 btn grey-text text-darken-3">
                         <i class="fa-solid fa-magnifying-glass">Search</i>
                     </button>
-                    <a href="{{ url_for('poems') }}" class="amber lighten-3 btn grey-text text-darken-2">Reset</a>
+                    <a href="{{ url_for('poems') }}" class="amber lighten-3 btn grey-text text-darken-3">Reset</a>
 
                 </div>
             </div>
@@ -48,12 +48,12 @@
             -->
             {% for poem in poems %}
             <li>
-                <div class="collapsible-header amber lighten-3 grey-text text-darken-2">
+                <div class="collapsible-header amber lighten-3 grey-text text-darken-3">
                     <i class="fa-solid fa-angle-down"></i>
                     <p class="poem-title"><strong>{{ poem.title }}</strong></p>
                 </div>
 
-                <div class="collapsible-body amber lighten-4 grey-text text-darken-2">
+                <div class="collapsible-body amber lighten-4 grey-text text-darken-3">
                     <p class="poem-additional-info">Category: {{ poem.category }}</p><br>
                     <!-- 
                         poem.content is a field in an individual poem. Use the splitlines() method to break this field up on each new line.
@@ -76,7 +76,7 @@
             {% endfor %}
         </ul>
     {% else %}
-        <h3 class="grey-text text-darken-2 center-align">No Results Found!</h3>
+        <h3 class="grey-text text-darken-3 center-align">No Results Found!</h3>
     {% endif %}
 </div>
 {% endblock %}

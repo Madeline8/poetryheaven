@@ -2,14 +2,14 @@
 {% block content%}
 
 <div class="container">
-    <h3 class="grey-text text-darken-2 center-align">Update Category</h3>
+    <h3 class="grey-text text-darken-3 center-align">Update Category</h3>
 
     <div class="row card-panel amber lighten-4 transparent">
         <form class="col s12" method="POST" action="{{ url_for('update_category', category_id=category._id) }}">
             <!-- Add New Category -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fa-solid fa-book prefix grey-text text-darken-2"></i>
+                    <i class="fa-solid fa-book prefix grey-text text-darken-3"></i>
                     <input id="category" name="category" minlength="3" maxlength="25" type="text"
                         value="{{ category.category }}" class="validate" required>
                     <label for="category">Category Name</label>
