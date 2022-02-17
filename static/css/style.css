@@ -37,6 +37,26 @@
   padding: 10px;
 }
 
+.btn-mobile {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: transparent;
+    color: #343434;
+    cursor: pointer;
+    -webkit-transition: background-color .2s;
+    transition: background-color .2s;
+    font-size: 11px;
+    color: rgb(143, 51, 230);
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.btn-logout{
+  color: rgb(143, 51, 230);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+}
+
 /* ----------------  /Style Navigation Menu ------------------ */
 /* ----------------  Style Footer ------------------ */
 
