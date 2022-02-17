@@ -26,7 +26,6 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons"><i
                             class="fas fa-bars"></i></i></a>
                 <ul class="nav-ul right hide-on-med-and-down">
-                    <br>
                     <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('home') }}">Home</a></li>
                     <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('poems') }}">Poems</a></li>
                     {% if session.user%}
@@ -36,7 +35,7 @@
                         <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('categories') }}">Manage Categories</a></li>
                         {% endif %}
                         <!-- Logout Modal Trigger  -->
-                        <li><a class="nav-link grey-text text-darken-3 modal-trigger" href="#logout-modal">Log Out</a></li>
+                        <li><a class="nav-link grey-text text-darken-3 modal-trigger" href="#logout-modal">Log Out</a>
                         <!-- Logout Modal structure  -->
                         <div id="logout-modal" class="modal">
                             <div class="modal-content amber lighten-4 transparent grey-text text-darken-3">
@@ -47,6 +46,7 @@
                             </div>
                             </div>
                         </div>
+                        </li>                 
                     {% else %}
                         <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('login') }}">Log In</a></li>
                         <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('signup') }}">Sign Up</a></li>
@@ -57,8 +57,8 @@
         </nav>
         <!--  mobile sidenav -->
         <ul class="sidenav grey lighten-5" id="mobile-demo">
-            <a href="{{ url_for('home') }}" class="logo"><img src="/static/images/logo2.png"
-                    alt="Poetry Heaven Logo"></a>
+            <li><div><a href="{{ url_for('home') }}" class="logo"><img src="/static/images/logo2.png"
+                    alt="Poetry Heaven Logo"></a></div></li>
             <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('home') }}">Home</a></li>
             <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('poems') }}">Poems</a></li>
             {% if session.user%}
@@ -67,7 +67,7 @@
                 {% if session.user|lower == "admin"|lower %}
                 <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('categories') }}">Manage Categories</a></li>
                 {% endif %}
-                <li><a class="nav-link grey-text text-darken-3 modal-trigger" href="#logout-modal-smalldevices">Log Out</a></li>
+                <li><a class="nav-link grey-text text-darken-3 modal-trigger" href="#logout-modal-smalldevices">Log Out</a>
                 <!-- Logout Modal structure  -->
                 <div id="logout-modal-smalldevices" class="modal">
                     <div class="modal-content amber lighten-4 transparent grey-text text-darken-3">
@@ -78,6 +78,7 @@
                     </div>
                     </div>
                 </div>
+                </li>        
             {% else %}
                 <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('login') }}">Log In</a></li>
                 <li><a class="nav-link grey-text text-darken-3" href="{{ url_for('signup') }}">Sign Up</a></li>
@@ -140,14 +141,14 @@
                     <li>
                         <a class="icon-footer right grey-text text-darken-3" target="_blank" rel="noreferrer"
                             href="https://www.facebook.com/">
-                            <i class="fab fa-facebook" aria-hidden="true"></i></a>
+                            <i class="fab fa-facebook" aria-hidden="true"></i>
                         <span class="sr-only">Facebook</span>
                         </a>
                     </li>
                     <li>
                         <a class="icon-footer right grey-text text-darken-3" target="_blank" rel="noreferrer"
                             href="https://twitter.com/">
-                            <i class="fab fa-twitter" aria-hidden="true"></i></i>
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
                             <span class="sr-only">Twitter</span>
                         </a>
                     </li>

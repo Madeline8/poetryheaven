@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template,
-redirect, request, session, url_for)
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -20,8 +20,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
-
-#  Set up instance of PyMongo to make sure Flask 
+#  Set up instance of PyMongo to make sure Flask
 # app is communicating with my Mongo Database
 mongo = PyMongo(app)
 
@@ -33,9 +32,8 @@ def home():
     This is the function for home.
     """
     poems = list(mongo.db.poems.find())
-    mobile_poems = [poems[0], poems[2], poems[5]]
     return render_template(
-        "home.html", poems=poems, mobile_poems=mobile_poems)
+        "home.html", poems=poems)
 
 
 @app.route("/poems")
@@ -43,10 +41,9 @@ def poems():
     """
     This is the function for poems template
     """
-    poems=list(mongo.db.poems.find())
+    poems = list(mongo.db.poems.find())
     return render_template(
         "poems.html", poems=poems)
-
 
 
 @app.route("/poems/<category>")
@@ -72,7 +69,7 @@ def filter_poems(category):
         poems = list(mongo.db.poems.find({"category": "Family"}))
     else:
         poems = list(mongo.db.poems.find({"category": "Spiritual"}))
-    return render_template ("poems.html", poems=poems, category=category)
+    return render_template("poems.html", poems=poems, category=category)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -86,17 +83,16 @@ def search():
     return render_template("poems.html", poems=poems)
 
 
-
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     """
     This is a function for Sign Up Page
     """
     if request.method == "POST":
-        #check if username exists
+        # check if username exists
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        
+
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("signup"))
@@ -114,9 +110,7 @@ def signup():
         flash("You have successfully Signed Up!")
         return redirect(url_for("profile", username=session["user"]))
 
-
     return render_template("signup.html")
-
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -132,11 +126,13 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                existing_user["password"],
+                    request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Hi, {}".format(
                         request.form.get("username")))
-                    return redirect(url_for("profile", username=session["user"]))
+                    return redirect(url_for("profile",
+                                    username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -147,24 +143,24 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
-    return render_template("login.html") 
+    return render_template("login.html")
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     """
-    This is a function for Profile page. It renders user's poems. 
+    This is a function for Profile page. It renders user's poems.
     """
-    # Profile is only accessible by registered users 
+    # Profile is only accessible by registered users
     if not session.get("user"):
         return render_template("404.html")
 
     # get the user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
+
     poems = list(mongo.db.poems.find({"created_by": session['user']}))
-    
+
     if session["user"]:
         return render_template("profile.html", username=username, poems=poems)
 
@@ -187,11 +183,11 @@ def add_poem():
     """
     Function for adding a new poem
     """
-    # Add Poem is only accessible by registered users 
+    # Add Poem is only accessible by registered users
     if not session.get("user"):
         return render_template("404.html")
 
-    # Add new poem to db 
+    # Add new poem to db
     if request.method == "POST":
         poem = {
             "title": request.form.get("title"),
@@ -210,9 +206,12 @@ def add_poem():
 
     categories = mongo.db.categories.find().sort("category", 1)
     gender_selection = mongo.db.gender_selection.find().sort("gender", 1)
-    
-    return render_template("add_poem.html", 
-                            categories=categories,             gender_selection=gender_selection)
+
+    return render_template(
+        "add_poem.html",
+        categories=categories,
+        gender_selection=gender_selection
+        )
 
 
 @app.route("/read_poem/<poems_id>")
@@ -231,7 +230,7 @@ def update_poem(poems_id):
     """
     Function for updating poem
     """
-    # Update Poem is only accessible by registered users 
+    # Update Poem is only accessible by registered users
     if not session.get("user"):
         return render_template("404.html")
 
@@ -253,7 +252,9 @@ def update_poem(poems_id):
     poem = mongo.db.poems.find_one({"_id": ObjectId(poems_id)})
     categories = mongo.db.categories.find().sort("category", 1)
     gender = mongo.db.gender_selection.find().sort("gender", 1)
-    return render_template("update_poem.html", poem=poem, categories=categories, gender=gender)
+    return render_template(
+        "update_poem.html",
+        poem=poem, categories=categories, gender=gender)
 
 
 @app.route("/delete_poem/<poems_id>")
@@ -317,7 +318,8 @@ def delete_category(category_id):
     flash("Category Successfully Deleted")
     return redirect(url_for("categories"))
 
-# Error Handlers 
+
+# Error Handlers
 @app.errorhandler(404)
 def not_found(e):
     """
@@ -335,7 +337,6 @@ def server_error(e):
     return render_template("500.html"), 500
 
 
-
 @app.route("/events")
 def events():
     """
@@ -345,8 +346,8 @@ def events():
         "events.html")
 
 
-# This is needed in order for the app to run correctly 
+# This is needed in order for the app to run correctly
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-        port=int(os.environ.get("PORT")),
-        debug=True)
+            port=int(os.environ.get("PORT")),
+            debug=True)
