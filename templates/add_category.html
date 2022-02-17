@@ -2,29 +2,31 @@
 {% block content%}
 
 <h3 class="grey-text text-darken-3 center-align">Add New Category</h3>
-
-<div class="row card-panel amber lighten-4 transparent">
-    <form class="col s12" method="POST" action="{{ url_for('add_category') }}">
-        <!-- Add New Category -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fa-solid fa-book prefix grey-text text-darken-3"></i>
-                <input id="category" name="category" minlength="3" maxlength="25" type="text" class="validate" required>
-                <label for="category">Category Name</label>
+<div class="container">
+    <div class="row card-panel amber lighten-4 transparent">
+        <form class="col s12" method="POST" action="{{ url_for('add_category') }}">
+            <!-- Add New Category -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fa-solid fa-book prefix grey-text text-darken-3"></i>
+                    <input id="category" name="category" minlength="3" maxlength="25" type="text" class="validate"
+                        required>
+                    <label for="category">Category Name</label>
+                </div>
             </div>
-        </div>
-        <!-- Submit button -->
-        <div class="row">
-            <div class="col s12 center-align">
-                <button class="btn-large amber lighten-3 grey-text text-darken-3">
-                    <i class="fa-solid fa-plus"> Add Category </i>
-                </button>
-                <a href="{{ url_for('categories')}}" class="btn-large amber lighten-3 purple-text text-darken-3">
-                    Cancel <i class="fa-solid fa-rectangle-xmark"></i>
-                </a>
+            <!-- Submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button class="btn-large amber lighten-3 grey-text text-darken-3">
+                        <i class="fa-solid fa-plus"> Add Category </i>
+                    </button>
+                    <a href="{{ url_for('categories')}}" class="btn-large amber lighten-3 purple-text text-darken-3">
+                        Cancel <i class="fa-solid fa-rectangle-xmark"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 
 {% endblock %}

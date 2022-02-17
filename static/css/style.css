@@ -1,7 +1,13 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@300;400&family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;1,100;1,200;1,300&display=swap');
 
 /* ------------------- Set Defaults / General------------------------- */
-
 * {
     margin: 0;
     padding: 0;
@@ -27,6 +33,54 @@
   font-size: 2.1rem;
 }
 
+/* override materialize input fields to mach this project's theme  */
+
+element.style {
+  border-bottom: 1px solid rgb(255,111,0);
+  -webkit-box-shadow: 0px 1px 0px 0px rgb(255,111,0);
+          box-shadow: 0px 1px 0px 0px rgb(255,111,0);
+}
+
+input.invalid[type=text]:not(.browser-default) {
+  border-bottom: 1px solid #ff6f00!important;
+  /* -webkit-box-shadow: 0 1px 0 0 #ff6f00; */
+  -webkit-box-shadow: 0 1px 0 0 rgba(255,111,0, 0.8);
+          box-shadow: 0 1px 0 0 rgba(255,111,0, 0.8);
+}
+
+input.valid[type=text]:not(.browser-default)
+input.valid[type=text]:not(.browser-default):focus {
+  border-bottom: 1px solid #9575cd;
+  -webkit-box-shadow: 0 1px 0 0 #9575cd;
+          box-shadow: 0 1px 0 0 #9575cd;
+}
+
+/* active input  */
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #9575cd!important;
+  -webkit-box-shadow: 0 1px 0 0 #9775cd!important;
+          box-shadow: 0 1px 0 0 #9775cd!important;
+}
+
+input.valid[type=text]:not(.browser-default) {
+  border-bottom: 1px solid #d1c4e9!important;
+  -webkit-box-shadow: 0 1px 0 0 #d1c4e9!important;
+          box-shadow: 0 1px 0 0 #d1c4e9!important;
+}
+/* /override materialize input fields to mach this project's theme  */
+
+/* Style Dropdown menu  */
+
+.select-dropdown li.disabled, .select-dropdown li.disabled>span, .select-dropdown li.optgroup {
+  color: #444;
+  background-color: #d1c4e9;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #444;
+  background-color: rgba(255,236,179,0.40);
+}
+
 /* ------------------- /Set Defaults ------------------------- */
 /* ----------------  Style Navigation Menu ------------------ */
 
@@ -44,11 +98,11 @@
     color: #343434;
     cursor: pointer;
     -webkit-transition: background-color .2s;
+    -o-transition: background-color .2s;
     transition: background-color .2s;
     font-size: 11px;
     color: rgb(143, 51, 230);
     font-family: 'Montserrat', sans-serif;
-
 }
 
 .btn-logout{
@@ -63,13 +117,20 @@
 /* set up sticky footer form: https://materializecss.com/footer.html */
 body {
     font-family: 'Montserrat', sans-serif;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     min-height: 100vh;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 
   main {
-    flex: 1 0 auto;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
   }
   /* End of set up sticky footer form: https://materializecss.com/footer.html */
 
@@ -94,6 +155,10 @@ footer {
   .icon-footer {
       color: #9d9dff;
       font-size: 1.65rem;
+  }
+
+  ul li i:hover {
+    color: #9575cd;
   }
 /* ----------------  /Style Footer ------------------ */
 
