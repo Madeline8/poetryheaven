@@ -89,6 +89,13 @@ footer {
 .style-benefits-info {
   padding: 30px;
 }
+
+.cafe-image {
+  /* background-image: url(../images/cafe-inside.jpg); */
+  max-width: 15rem;
+  max-height: 18rem;
+}
+
 /* ----------------  Home Page ------------------ */
 /* ----------------  Poems ------------------ */ 
 .poem-position {
@@ -120,6 +127,14 @@ footer {
 
 .input-field>label {
   color: #413e3e;
+}
+
+.amber.lighten-4 {
+  background-color: rgba(255,236,179,0.80)!important;
+}
+
+.amber.lighten-3 {
+  background-color: rgba(255,224,130, 0.50)!important;
 }
 /* ----------------  /Poems ------------------ */
 /* ----------------  Profile ------------------ */
