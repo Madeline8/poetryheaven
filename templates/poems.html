@@ -31,52 +31,50 @@
             <h5 class="">Filter By:</h5>
             <a href="{{ url_for('filter_poems', category='Death') }}" class="btn deep-purple lighten-2">Death</a>
             <a href="{{ url_for('filter_poems', category='Family') }}" class="btn deep-purple lighten-2">Family</a>
-            <a href="{{ url_for('filter_poems', category='Friendship') }}" class="btn deep-purple lighten-2">Friendship</a>
+            <a href="{{ url_for('filter_poems', category='Friendship') }}"
+                class="btn deep-purple lighten-2">Friendship</a>
             <a href="{{ url_for('filter_poems', category='Humour') }}" class="btn deep-purple lighten-2">Humour</a>
             <a href="{{ url_for('filter_poems', category='Life') }}" class="btn deep-purple lighten-2">Life</a>
             <a href="{{ url_for('filter_poems', category='Love') }}" class="btn deep-purple lighten-2">Love</a>
             <a href="{{ url_for('filter_poems', category='Nature') }}" class="btn deep-purple lighten-2">Nature</a>
-            <a href="{{ url_for('filter_poems', category='Spiritual') }}" class="btn deep-purple lighten-2">Spiritual</a>
+            <a href="{{ url_for('filter_poems', category='Spiritual') }}"
+                class="btn deep-purple lighten-2">Spiritual</a>
         </div>
     </div>
     {% endif %}
 
     {% if poems|length > 0 %}
-        <ul class="collapsible">
-            <!-- 
-                Here you have an object called poems. You are making a for loop and calling each iteration 'poem'. You can then access the individual properties of a poem (which is itself a document in your DB)    
-            -->
-            {% for poem in poems %}
-            <li>
-                <div class="collapsible-header amber lighten-3 grey-text text-darken-3">
-                    <i class="fa-solid fa-angle-down"></i>
-                    <p class="poem-title"><strong>{{ poem.title }}</strong></p>
-                </div>
+    <ul class="collapsible">
+        {% for poem in poems %}
+        <li>
+            <div class="collapsible-header amber lighten-3 grey-text text-darken-3">
+                <i class="fa-solid fa-angle-down"></i>
+                <p class="poem-title"><strong>{{ poem.title }}</strong></p>
+            </div>
 
-                <div class="collapsible-body amber lighten-4 grey-text text-darken-3">
-                    <p class="poem-additional-info">Category: {{ poem.category }}</p><br>
-                    <!-- 
+            <div class="collapsible-body amber lighten-4 grey-text text-darken-3">
+                <p class="poem-additional-info">Category: {{ poem.category }}</p><br>
+                <!-- 
                         poem.content is a field in an individual poem. Use the splitlines() method to break this field up on each new line.
-
-                        Let's call each iteration of this a 'line' to make better sense of it when making the for loop.
+                        Call each iteration of this a 'line' to make better sense of it when making the for loop.
                     -->
-                    {% for line in poem.content.splitlines() %}
-                    <!-- 
+                {% for line in poem.content.splitlines() %}
+                <!-- 
                         Each 'line' is just that, a line from the poem.content field in the document.
                     -->
-                    <p class="poem-content">{{ line }}</p>
-                    {% endfor %}
-                    <br>
-                    <p class="poem-additional-info">Created By: {{ poem.created_by }}</p>
-                    <p class="poem-additional-info">Gender: {{ poem.gender }}</p>
-                    <p class="poem-additional-info">Created On: {{ poem.created_on }}<br></p>
-                    <p class="poem-additional-info">Created In: {{ poem.location }}</p>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
+                <p class="poem-content">{{ line }}</p>
+                {% endfor %}
+                <br>
+                <p class="poem-additional-info">Created By: {{ poem.created_by }}</p>
+                <p class="poem-additional-info">Gender: {{ poem.gender }}</p>
+                <p class="poem-additional-info">Created On: {{ poem.created_on }}<br></p>
+                <p class="poem-additional-info">Created In: {{ poem.location }}</p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
     {% else %}
-        <h3 class="grey-text text-darken-3 center-align">No Results Found!</h3>
+    <h3 class="grey-text text-darken-3 center-align">No Results Found!</h3>
     {% endif %}
 </div>
 {% endblock %}

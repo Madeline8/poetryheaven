@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- View poem template -->
 <div class="container">
     <div class="row read-poem-background">
         <div class="col s12 amber lighten-3 grey-text text-darken-3 center-align">
@@ -11,9 +12,6 @@
         </div>
         <div class="col s12 amber lighten-4 grey-text text-darken-3 center-align">
             {% for line in poem.content.splitlines() %}
-            <!-- 
-                Each 'line' is just that, a line from the poem.content field in the document.
-             -->
             <p class="poem-content">{{ line }}</p>
             {% endfor %}
         </div>

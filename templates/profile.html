@@ -14,18 +14,20 @@
     <div class="row">
         <h5 class="grey-text text-darken-3">MY POEMS</h5>
         {% if poems|length > 0 %}
-        <ul class="collapsible">  
-            <!-- Here you have an object called poems. You are making a for loop and calling each iteration 'poem'. You can then access the individual properties of a poem (which is itself a document in your DB) -->
+        <ul class="collapsible">
             {% for poem in poems %}
             <li>
                 <div class="row collapsible-header amber lighten-3 grey-text text-darken-3">
                     <div class="col s7 m9 ">
-                        <p class="poem-title"><strong><i class="fa-solid fa-angle-down"></i> {{ poem.title }}</strong></p>
+                        <p class="poem-title"><strong><i class="fa-solid fa-angle-down"></i> {{ poem.title }}</strong>
+                        </p>
                     </div>
                     <div class="col s5 m3">
-                        <a href="{{ url_for('update_poem', poems_id=poem._id) }}" class="btn-small deep-purple lighten-2">UPDATE</a>
+                        <a href="{{ url_for('update_poem', poems_id=poem._id) }}"
+                            class="btn-small deep-purple lighten-2">UPDATE</a>
                         <!-- Modal delete trigger (credited in README file: https://materializecss.com/modals.html) -->
-                        <a class="btn-small deep-purple lighten-2 modal-trigger" href="#modal-delete{{ loop.index }}" >DELETE</a>
+                        <a class="btn-small deep-purple lighten-2 modal-trigger"
+                            href="#modal-delete{{ loop.index }}">DELETE</a>
                         <!-- Modal delete Structure -->
                         <div id="modal-delete{{ loop.index }}" class="modal">
                             <div class="modal-content amber lighten-4 transparent">
@@ -33,19 +35,15 @@
                             </div>
                             <div class="modal-footer amber lighten-4 transparent">
                                 <a href="#" class="modal-close btn-flat">Cancel</a>
-                                <a href="{{ url_for('delete_poem', poems_id=poems._id)}}" class="modal-close btn-flat">Delete</a>
+                                <a href="{{ url_for('delete_poem', poems_id=poems._id)}}"
+                                    class="modal-close btn-flat">Delete</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="collapsible-body amber lighten-4 lighten-5 grey-text text-darken-3">
-                    <p class="poem-additional-info">Category: {{ poem.category }}</p><br>        
-                    <!-- poem.content is a field in an individual poem. Use the splitlines() method to break this field up on each new line.
-                    Let's call each iteration of this a 'line' to make better sense of it when making the for loop. -->
-                    
-                    {% for line in poem.content.splitlines() %}           
-                    <!-- Each 'line' is just that, a line from the poem.content field in the document. -->
-                        
+                    <p class="poem-additional-info">Category: {{ poem.category }}</p><br>
+                    {% for line in poem.content.splitlines() %}
                     <p class="poem-content">{{ line }}</p>
                     {% endfor %}
                     <br>

@@ -26,7 +26,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# Home Page
 @app.route("/")
 @app.route("/home")
 def home():
@@ -41,14 +40,20 @@ def home():
 
 @app.route("/poems")
 def poems():
+    """
+    This is the function for poems template
+    """
     poems=list(mongo.db.poems.find())
     return render_template(
         "poems.html", poems=poems)
 
 
-# Filter poems by category 
+
 @app.route("/poems/<category>")
 def filter_poems(category):
+    """
+    Filter for specific poems accordingly with selected category
+    """
     if category == "Death":
         poems = list(mongo.db.poems.find({"category": "Death"}))
     elif category == "Family":
@@ -70,19 +75,24 @@ def filter_poems(category):
     return render_template ("poems.html", poems=poems, category=category)
 
 
-# Search functionality on poems.html
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    """
+    Search functionality in the poems template. It Searches for poems
+    and returns results matching poem's name category and content
+    """
     query = request.form.get("query")
     poems = list(mongo.db.poems.find({"$text": {"$search": query}}))
     return render_template("poems.html", poems=poems)
 
 
-# Sign Up Page
+
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
+    """
+    This is a function for Sign Up Page
+    """
     if request.method == "POST":
-
         #check if username exists
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -111,6 +121,9 @@ def signup():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Log In function for already registered users
+    """
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -139,6 +152,9 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    """
+    This is a function for Profile page. It renders user's poems. 
+    """
     # Profile is only accessible by registered users 
     if not session.get("user"):
         return render_template("404.html")
@@ -157,6 +173,9 @@ def profile(username):
 
 @app.route("/logout")
 def logout():
+    """
+    Function for logging out. It removes user from the session.
+    """
     # remove the user from session cookie
     flash("You have been logged out")
     session.pop("user")
@@ -165,6 +184,9 @@ def logout():
 
 @app.route("/add_poem", methods=["GET", "POST"])
 def add_poem():
+    """
+    Function for adding a new poem
+    """
     # Add Poem is only accessible by registered users 
     if not session.get("user"):
         return render_template("404.html")
@@ -192,11 +214,12 @@ def add_poem():
     return render_template("add_poem.html", 
                             categories=categories,             gender_selection=gender_selection)
 
-# To see a specific poem separately
+
 @app.route("/read_poem/<poems_id>")
-# we are expecting a variable called 'poems_id' to be passed in whenever this
-# URL is accessed
 def read_poem(poems_id):
+    """
+    Function for viewing specific poem on a separate page
+    """
     poem = mongo.db.poems.find_one({"_id": ObjectId(poems_id)})
     return render_template(
         "read_poem.html",
@@ -205,6 +228,9 @@ def read_poem(poems_id):
 
 @app.route("/update_poem/<poems_id>", methods=["GET", "POST"])
 def update_poem(poems_id):
+    """
+    Function for updating poem
+    """
     # Update Poem is only accessible by registered users 
     if not session.get("user"):
         return render_template("404.html")
@@ -242,7 +268,9 @@ def delete_poem(poems_id):
 
 @app.route("/categories")
 def categories():
-    # Categories field is only accessible by admin
+    """
+    Function for managing categories, only by user 'admin'
+    """
     if not session.get("user") == "admin":
         return render_template("404.html")
 
@@ -252,6 +280,9 @@ def categories():
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
+    """
+    Function for adding a new category. Can only be added by 'admin'
+    """
     if request.method == "POST":
         category = {
             "category": request.form.get("category")
@@ -265,6 +296,9 @@ def add_category():
 
 @app.route("/update_category/<category_id>", methods=["GET", "POST"])
 def update_category(category_id):
+    """
+    Function for updating a category
+    """
     if request.method == "POST":
         submit = {
             "category": request.form.get("category")
@@ -286,21 +320,32 @@ def delete_category(category_id):
 # Error Handlers 
 @app.errorhandler(404)
 def not_found(e):
+    """
+    404 error handling page
+    """
     return render_template("404.html"), 404
 
 
 @app.errorhandler(500)
 def server_error(e):
+    """
+    500 error handling page
+    thanks to Flask Documentation (credited in README)
+    """
     return render_template("500.html"), 500
 
 
-# Events
+
 @app.route("/events")
 def events():
+    """
+    Events Page
+    """
     return render_template(
         "events.html")
 
 
+# This is needed in order for the app to run correctly 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),
