@@ -43,6 +43,7 @@ $(document).ready(function(){
     }
 });
 
+// To stop propagation - explained in README - TESTING under solved bugs 
 $(document).click(function(){
     $('li[id^="select-options"]').on('touchend', function (e) {
         e.stopPropagation();

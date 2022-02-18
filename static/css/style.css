@@ -74,8 +74,15 @@ input.valid[type=text]:not(.browser-default) {
 }
 /* /override materialize input fields to mach this project's theme  */
 
+
+/* apply this in order to fix a bug on iphone (documented in README) */
 select {
   -webkit-appearance: none;
+}
+
+
+select-wrapper {
+  margin-top: 10px;
 }
 
 /* Style Dropdown menu  */
