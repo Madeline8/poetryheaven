@@ -18,13 +18,13 @@
         <div class="col s12 m3">
             <div class="card amber lighten-3 lighten-5 center-align">
                 <div class="card-content grey-text text-darken-3">
-                    <span class="card-title"><strong>{{ category.category }}</strong></span>
+                    <span class="card-title title-manage-categories"><strong>{{ category.category }}</strong></span>
                 </div>
                 <div class="card-action">
                     <a href="{{ url_for('update_category', category_id=category._id) }}"
-                        class="btn-small deep-purple lighten-2">Update</a>
+                        class="btn-small deep-purple lighten-2" aria-label="Update category">Update</a>
                     <!-- Modal category delete trigger (credited in README file: https://materializecss.com/modals.html) -->
-                    <a class="btn-small deep-purple lighten-2 modal-trigger"
+                    <a class="btn-small deep-purple lighten-2 modal-trigger" aria-label="Delete category"
                         href="#category-modal-delete{{ loop.index }}">Delete</a>
                     <!-- Modal category delete Structure -->
                     <div id="category-modal-delete{{ loop.index }}" class="modal">
@@ -32,9 +32,9 @@
                             <h4>Please confirm if you wish to delete this category</h4>
                         </div>
                         <div class="modal-footer amber lighten-4 transparent grey-text text-darken-3">
-                            <a href="#" class="modal-close btn-flat grey-text text-darken-3">Cancel</a>
+                            <a href="#" class="modal-close btn-flat grey-text text-darken-3" aria-label="Cancel deletion of this category">Cancel</a>
                             <a href="{{ url_for('delete_category', category_id=category._id)}}"
-                                class="modal-close btn-flat grey-text text-darken-3">Delete</a>
+                                class="modal-close btn-flat grey-text text-darken-3" aria-label="Confirm deletion of this category">Delete</a>
                         </div>
                     </div>
                 </div>

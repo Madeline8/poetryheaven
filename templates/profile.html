@@ -54,8 +54,7 @@
                 </div>
                 <!-- View specific poem separately -->
                 <div class="collapsible-body amber lighten-4 lighten-5 grey-text text-darken-3">
-                    <h6><a class="view-poem-link" href="{{ url_for('read_poem', poems_id=poem._id) }}">View Poem</a></h6>
-
+                    <h6><a class="view-poem-link" href="{{ url_for('read_poem', poems_id=poem._id) }}" aria-label="View poem on a separate page">View Poem</a></h6>
                 </div>
             </li>
             {% endfor %}
