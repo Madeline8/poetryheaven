@@ -201,7 +201,6 @@ def add_poem():
         }
         mongo.db.poems.insert_one(poem)
         flash("New Poem Added!")
-        # return redirect(url_for("profile"))
         return redirect(url_for("profile", username=session["user"]))
 
     categories = mongo.db.categories.find().sort("category", 1)
@@ -243,7 +242,6 @@ def update_poem(poems_id):
             "gender": request.form.get("gender"),
             "created_on": request.form.get("created_on"),
             "location": request.form.get("location")
-
         }
         mongo.db.poems.update({"_id": ObjectId(poems_id)}, submit)
         flash("Poem Successfully Updated!")

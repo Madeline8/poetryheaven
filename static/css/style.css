@@ -74,6 +74,10 @@ input.valid[type=text]:not(.browser-default) {
 }
 /* /override materialize input fields to mach this project's theme  */
 
+select {
+  -webkit-appearance: none;
+}
+
 /* Style Dropdown menu  */
 
 .select-dropdown li.disabled, .select-dropdown li.disabled>span, .select-dropdown li.optgroup {
