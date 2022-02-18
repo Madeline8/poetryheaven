@@ -21,6 +21,13 @@
             <p class="poem-additional-info">Gender: {{ poem.gender }}</p>
             <p class="poem-additional-info">Created On: {{ poem.created_on }}<br></p>
             <p class="poem-additional-info">Created In: {{ poem.location }}</p>
+            <div class="row">
+                    <a href="{{ url_for('profile', username=session['user'] ) }}"class="btn-large amber lighten-3 purple-text text-darken-3 cancel-btn center-align view-poem-go-back">
+                        Go Back <i class="fa-solid fa-rectangle-xmark"></i>
+                    </a>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>

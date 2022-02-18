@@ -265,6 +265,14 @@ footer {
   margin-right: auto;
   margin-bottom: 5px;
 }
+
+.view-poem-go-back {
+  margin-top: 10px;
+}
+
+.view-poem-link {
+  color: #7140c5;
+}
 /* -------------------- / Profile ------------------------ */
 
 /* --------------------  Events ------------------------ */
@@ -342,9 +350,15 @@ html {
 }
 
 /* fix alignment of cancel butons in this media query  */
-@media (min-width: 457px) and (max-width: 576px) {
-  
+@media (min-width: 457px) and (max-width: 576px) { 
   .cancel-btn {
     margin-top: 0px;
+  }
+}
+
+/* fix alignment of reset button in this media query  */
+@media (min-width: 768px) and (max-width: 808px) {
+  .reset-btn {
+    margin-top: 5px;
   }
 }
