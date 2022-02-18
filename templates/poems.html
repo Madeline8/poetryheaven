@@ -6,15 +6,14 @@
 
     <div class="row-card-panel grey-text text-darken-3">
         <form action="{{ url_for('search')}}" method="post" class="col 12">
-            <div class="row valign-wrapper center-align">
+            <div class="row valign-wrapper center-align">               
                 <div class="input-field col s12 m8">
                     <i class="fa-solid fa-magnifying-glass prefix grey-text text-darken-3"></i>
                     <input type="text" name="query" id="query" minlength="2" class="validate" required>
                     <label for="query">Search Poems</label>
                 </div>
-
                 <div class="col s12 m4">
-                    <button type="submit" class="amber lighten-3 btn grey-text text-darken-3">
+                    <button type="submit" class="amber lighten-3 btn grey-text text-darken-3" id="poems-search-button">
                         <i class="fa-solid fa-magnifying-glass">Search</i>
                     </button>
                     <a href="{{ url_for('poems') }}" class="amber lighten-3 btn grey-text text-darken-3">Reset</a>
@@ -29,16 +28,16 @@
     <div class="row">
         <div class="col s12 center">
             <h5 class="">Filter By:</h5>
-            <a href="{{ url_for('filter_poems', category='Death') }}" class="btn deep-purple lighten-2">Death</a>
-            <a href="{{ url_for('filter_poems', category='Family') }}" class="btn deep-purple lighten-2">Family</a>
+            <a href="{{ url_for('filter_poems', category='Death') }}" class="btn deep-purple lighten-2 btn-filter">Death</a>
+            <a href="{{ url_for('filter_poems', category='Family') }}" class="btn deep-purple lighten-2 btn-filter">Family</a>
             <a href="{{ url_for('filter_poems', category='Friendship') }}"
-                class="btn deep-purple lighten-2">Friendship</a>
-            <a href="{{ url_for('filter_poems', category='Humour') }}" class="btn deep-purple lighten-2">Humour</a>
-            <a href="{{ url_for('filter_poems', category='Life') }}" class="btn deep-purple lighten-2">Life</a>
-            <a href="{{ url_for('filter_poems', category='Love') }}" class="btn deep-purple lighten-2">Love</a>
-            <a href="{{ url_for('filter_poems', category='Nature') }}" class="btn deep-purple lighten-2">Nature</a>
+                class="btn deep-purple lighten-2 btn-filter">Friendship</a>
+            <a href="{{ url_for('filter_poems', category='Humour') }}" class="btn deep-purple lighten-2 btn-filter">Humour</a>
+            <a href="{{ url_for('filter_poems', category='Life') }}" class="btn deep-purple lighten-2 btn-filter">Life</a>
+            <a href="{{ url_for('filter_poems', category='Love') }}" class="btn deep-purple lighten-2 btn-filter">Love</a>
+            <a href="{{ url_for('filter_poems', category='Nature') }}" class="btn deep-purple lighten-2 btn-filter">Nature</a>
             <a href="{{ url_for('filter_poems', category='Spiritual') }}"
-                class="btn deep-purple lighten-2">Spiritual</a>
+                class="btn deep-purple lighten-2 btn-filter">Spiritual</a>
         </div>
     </div>
     {% endif %}

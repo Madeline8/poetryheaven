@@ -237,6 +237,12 @@ footer {
 .amber.lighten-3 {
   background-color: rgba(255,224,130, 0.50)!important;
 }
+
+/* space around filter buttons on smaller devices */
+ .btn-filter {
+  margin-bottom: 5px;
+}
+
 /* ----------------  /Poems ------------------ */
 /* ----------------  Profile ------------------ */
 
@@ -310,4 +316,35 @@ html {
   .style-benefits-info {
     padding: 25px!important;
 }
+}
+/* `md` applies to small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+
+  /* vertical space between search and reset buttons on smaller devices  */
+  #poems-search-button {
+    margin-bottom: 5px;
+  }
+}
+
+/* fix alignment of search and reset butons in this media query  */
+@media (min-width: 502px) and (max-width: 599px) {
+  #poems-search-button {
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 575.98px) {
+
+  /* Fix space around Cancel button on smaller devices  */
+  .cancel-btn {
+    margin-top: 10px;
+  }
+}
+
+/* fix alignment of cancel butons in this media query  */
+@media (min-width: 457px) and (max-width: 576px) {
+  
+  .cancel-btn {
+    margin-top: 0px;
+  }
 }
