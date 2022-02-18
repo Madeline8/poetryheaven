@@ -19,12 +19,12 @@
 }
 
 .card-panel {
-  /* margin-top: 28px; */
   background-color: rgba(255,224,130,0.90);
 }
 
 .nav-ul {
-  margin-right: 3rem;
+  margin-right: 2rem;
+  margin-top: 2rem;;
 }
 
 /* hamburger icon */
