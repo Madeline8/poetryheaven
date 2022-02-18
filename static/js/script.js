@@ -42,3 +42,9 @@ $(document).ready(function(){
         });
     }
 });
+
+$(document).click(function(){
+    $('li[id^="select-options"]').on('touchend', function (e) {
+        e.stopPropagation();
+    });
+});
