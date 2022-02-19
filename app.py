@@ -317,7 +317,6 @@ def delete_category(category_id):
     return redirect(url_for("categories"))
 
 
-# Error Handlers
 @app.errorhandler(404)
 def not_found(e):
     """
