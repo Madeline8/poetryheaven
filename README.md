@@ -364,12 +364,12 @@ The following links will take you to the sources I used for:
 - [Background Image](https://unsplash.com/photos/Bz_JX1COlrE)
 
 
-## Acknowledgements
+## ACKNOWLEDGMENTS
 
 I would like to thank:
 -  My mentor, Gerry McBride for his support and guidance.
 - Student support, specifically Aoife, for understanding and support.
 -  Tutor support at Code Institute, especially Ed, for their help on a couple issues I encountered throughout the project.
 
-## Disclaimer
+## DISCLAIMER
 Please note that this project is for educational purposes only. The main aim was to show my abilities in software development. 

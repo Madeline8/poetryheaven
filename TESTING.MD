@@ -44,6 +44,7 @@ There were a few minor formatting errors where tags were missing; however, these
 
 
 [CSS Validation Service](https://jigsaw.w3.org/css-validator/) 
+
 ![No Errors Found](static/images/testing/jigsaw-validator.png)
 
 Before validating CSS I also used [Autoprefixer](https://autoprefixer.github.io/), to arrange and delete the prefixes.
@@ -176,9 +177,10 @@ Please note all goals above also apply for Site Members
 
     Events Page:
 
-        ![enter image description here](static/images/testing/events-page1.png)
+    ![enter image description here](static/images/testing/events-page1.png)
 
-        ![enter image description here](static/images/testing/events-page2.png)
+
+    ![enter image description here](static/images/testing/events-page2.png)
 
 
 **Further Testing**
@@ -301,4 +303,4 @@ Ed, tutor from Code institute, helped me finding the article on # [Materialize s
  
 One of the reasons it might be happening is that because the event listener is attached to the whole `input-field`. It only happens on iOS therefore the other reason might be a common issue with select functionality on the system when using Materialize. 
 
-Back to README.md file.
+[Back to README.md file.](README.md)
