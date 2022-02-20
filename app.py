@@ -97,6 +97,11 @@ def signup():
             flash("Username already exists")
             return redirect(url_for("signup"))
 
+        if request.form.get("password") != request.form.get("rpassword"):
+            flash("Passwords do not match")
+            return redirect(url_for("signup"))
+        
+
         signup = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
