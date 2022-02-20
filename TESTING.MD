@@ -1,26 +1,16 @@
-TESTING PROCESS
-- - - 
-CONTENTS
 
-Code Validation
+TESTING - Table of Contents
+=================
 
-Testing User Stories
-
-Further Testing
-
-Browser Compatibility
-
-Responsiveness / Device Compatibility
-
-Manual device testing
-
-Lighthouse
-
-Defensive Design
-
-Solved Bugs
-
-Known Bugs
+* [CODE VALIDATION](#code-validation)
+* [TESTING USER STORIES](#testing-user-stories)
+* [BROWSER COMPATIBILITY](#browser-compatibility)
+* [RESPONSIVENESS/ DEVICE COMPATIBILITY](#responsiveness-device-compatibility)
+* [MANUAL DEVICE TESTING](#manual-device-testing)
+* [LIGHTHOUSE](#lighthouse)
+* [DEFENSIVE DESIGN](#defensive-design)
+* [SOLVED BUGS](#solved-bugs)
+* [KNOWN BUGS](#known-bugs)
 
 
 ### CODE VALIDATION
