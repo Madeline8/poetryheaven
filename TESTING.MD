@@ -1,26 +1,16 @@
-TESTING PROCESS
-- - - 
-CONTENTS
 
-Code Validation
+TESTING - Table of Contents
+=================
 
-Testing User Stories
-
-Further Testing
-
-Browser Compatibility
-
-Responsiveness / Device Compatibility
-
-Manual device testing
-
-Lighthouse
-
-Defensive Design
-
-Solved Bugs
-
-Known Bugs
+* [CODE VALIDATION](#code-validation)
+* [TESTING USER STORIES](#testing-user-stories)
+* [BROWSER COMPATIBILITY](#browser-compatibility)
+* [RESPONSIVENESS/ DEVICE COMPATIBILITY](#responsiveness-device-compatibility)
+* [MANUAL DEVICE TESTING](#manual-device-testing)
+* [LIGHTHOUSE](#lighthouse)
+* [DEFENSIVE DESIGN](#defensive-design)
+* [SOLVED BUGS](#solved-bugs)
+* [KNOWN BUGS](#known-bugs)
 
 
 ### CODE VALIDATION
@@ -303,4 +293,8 @@ Ed, tutor from Code institute, helped me finding the article on # [Materialize s
  
 One of the reasons it might be happening is that because the event listener is attached to the whole `input-field`. It only happens on iOS therefore the other reason might be a common issue with select functionality on the system when using Materialize. 
 
+<<<<<<< HEAD
 [Back to README.md file.](README.md)
+=======
+Back to README.md file.
+>>>>>>> 87bc920f446b7a87fc93524e7e05aa43702ef95d

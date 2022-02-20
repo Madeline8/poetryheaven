@@ -1,5 +1,5 @@
 
-# ‘Poetry Heaven’
+# Poetry Heaven
 
 ![](static/images/amiresponsive-screenshot-main.png)
 
@@ -7,40 +7,35 @@ View the repository in GitHub [here](https://github.com/Madeline8/poetryheaven)
 
 View the live project [here](https://poetry-heaven.herokuapp.com/)
 
-TABLE OF CONTENTS
+Table of Contents
+=================
 
-USER EXPERIENCE (UX)
-Project Goals
-User Stories­
-Design
-Wireframes
 
-DATABASE SCHEMA
-
-FEATURES
-Existing Features
-Features still to implement
-
-TECHNOLOGIES USED
-Languages Used
-Frameworks, Libraries and Programs used
-Testing Tools used
-
-TESTING
-
-DEPLOYMENT
-Requirements
-Forking the Github Repository
-Cloning Project
-Deployment to Heroku
-
-CREDITS
-Code
-Content
-Media
-
-ACKNOWLEDGMENTS
-DISCLAIMER
+   * [USER EXPERIENCE (UX)](#user-experience-ux)
+      * [PROJECT GOALS](#project-goals)
+      * [USER STORIES](#user-stories)
+      * [DESIGN](#design)
+      * [WIREFRAMES](#wireframes)
+   * [DATABASE SCHEMA](#database-schema)
+   * [FEATURES](#features)
+      * [EXISTING FEATURES](#existing-features)
+      * [FEATURES STILL TO IMPLEMENT](#features-still-to-implement)
+   * [TECHNOLOGIES USED](#technologies-used)
+      * [LANGUAGES USED](#languages-used)
+      * [FRAMEWORKS, LIBRARIES AND AND PROGRAMS USED](#frameworks-libraries-and-and-programs-used)
+      * [TESTING TOOLS USED](#testing-tools-used)
+   * [TESTING](#testing)
+   * [DEPLOYMENT](#deployment)
+      * [REQUIREMENTS](#requirements)
+      * [FORKING THE GITHUB REPOSITORY](#forking-the-github-repository)
+      * [CLONING PROJECT](#cloning-project)
+      * [DEPLOYMENT TO HEROKU](#deployment-to-heroku)
+   * [CREDITS](#credits)
+      * [CODE](#code)
+      * [CONTENT](#content)
+      * [MEDIA](#media)
+   * [Acknowledgements](#acknowledgements)
+   * [Disclaimer](#disclaimer)
 
 ## USER EXPERIENCE (UX)
 
@@ -371,5 +366,10 @@ I would like to thank:
 - Student support, specifically Aoife, for understanding and support.
 -  Tutor support at Code Institute, especially Ed, for their help on a couple issues I encountered throughout the project.
 
+<<<<<<< HEAD
 ## DISCLAIMER
 Please note that this project is for educational purposes only. The main aim was to show my abilities in software development. 
+=======
+## Disclaimer
+Please note that this project is for educational purposes only. The main aim was to show my abilities in software development. 
+>>>>>>> 87bc920f446b7a87fc93524e7e05aa43702ef95d
